@@ -17,8 +17,9 @@ const caveat = Caveat({
   subsets: ["latin"],
 });
 
+
 export const metadata: Metadata = {
-  title: "girl dinner\u2122",
+  title: "girl dinner™",
   description: "chaos cooking for the soul",
 };
 
@@ -30,7 +31,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${dmSans.variable} ${caveat.variable} h-full antialiased`}
+      className={`${playfair.variable} ${dmSans.variable} ${caveat.variable} min-h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

@@ -4,29 +4,37 @@
   --font-sans: var(--font-dm-sans);
   --font-serif: var(--font-playfair);
   --font-hand: var(--font-caveat);
-  --color-blush: #FFF0F3;
+
+  --color-blush: #FFF0F5;
   --color-cream: #FFFAF0;
-  --color-rose: #E8A0BF;
-  --color-mauve: #BA90C6;
-  --color-dusty: #C0737A;
-  --color-wine: #4A1942;
-  --color-deep: #2D1B2E;
-  --color-gold: #D4A574;
+  --color-petal: #FFE4EE;
+  --color-rose: #E8829F;
+  --color-mauve: #B87FC6;
+  --color-dusty: #B87A85;
+  --color-wine: #8B2252;
+  --color-deep: #3D1F2E;
+  --color-gold: #C99060;
+  --color-surface: #FFFFFF;
+}
+
+html {
+  color-scheme: light only;
+  min-height: 100%;
+  background: linear-gradient(150deg, #FFF0F5 0%, #F8E3F0 30%, #EEE0F5 65%, #FFF5F8 100%);
 }
 
 body {
   font-family: var(--font-dm-sans), sans-serif;
-  background: linear-gradient(135deg, #FFF0F3 0%, #F5E6F0 40%, #EDE4F0 70%, #FFFAF0 100%);
-  color: #2D1B2E;
+  color: #3D1F2E;
   min-height: 100vh;
 }
 
-/* Grain texture overlay */
+/* Subtle grain */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  opacity: 0.03;
+  opacity: 0.025;
   pointer-events: none;
   z-index: 50;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
@@ -46,12 +54,12 @@ body::before {
 
 /* Card fade-in */
 @keyframes fade-in {
-  from { opacity: 0; transform: translateY(8px); }
+  from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 .animate-fade-in {
-  animation: fade-in 0.4s ease-out;
+  animation: fade-in 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Shuffle wiggle */
@@ -63,4 +71,13 @@ body::before {
 
 .animate-wiggle {
   animation: wiggle 0.15s ease-in-out infinite;
+}
+
+/* Card hover lift */
+.card-lift {
+  transition: box-shadow 0.25s ease, transform 0.2s ease;
+}
+.card-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(180, 80, 120, 0.1);
 }

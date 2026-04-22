@@ -1,80 +1,1118 @@
 [
-  { "id": "1", "name": "Lavender Haze Spritz", "ingredients": ["prosecco", "lavender syrup", "soda water", "lemon twist"], "vibe": "Taylor would approve", "moods": ["soft", "fancy"] },
-  { "id": "2", "name": "The Gossip Girl", "ingredients": ["vodka", "elderflower liqueur", "champagne", "cucumber slice"], "vibe": "xoxo, you know you love me", "moods": ["fancy"] },
-  { "id": "3", "name": "Espresso Martini of Denial", "ingredients": ["vodka", "espresso", "kahlua", "delusion"], "vibe": "I'll sleep when I'm dead", "moods": ["fancy", "dissociating"] },
-  { "id": "4", "name": "Pink Drink Delulu", "ingredients": ["rosé", "strawberry purée", "lime", "basil"], "vibe": "summer in a glass", "moods": ["soft", "fancy"] },
-  { "id": "5", "name": "Feral Negroni", "ingredients": ["gin", "campari", "sweet vermouth", "orange peel"], "vibe": "I contain multitudes and bitters", "moods": ["feral", "fancy"] },
-  { "id": "6", "name": "Hangover in Heels", "ingredients": ["tomato juice", "vodka", "tabasco", "celery", "prayer"], "vibe": "hair of the dog that bit me", "moods": ["hungover"] },
-  { "id": "7", "name": "The Coquette", "ingredients": ["pink gin", "rose syrup", "lemon", "egg white", "edible flower"], "vibe": "tied with a bow", "moods": ["soft", "fancy"] },
-  { "id": "8", "name": "Dirty Martini Diaries", "ingredients": ["gin", "dry vermouth", "olive brine", "three olives"], "vibe": "I have an opinion about gin", "moods": ["fancy", "feral"] },
-  { "id": "9", "name": "Aperol Amnesia", "ingredients": ["aperol", "prosecco", "soda", "orange slice"], "vibe": "it's a vibe not a drink", "moods": ["soft", "fancy"] },
-  { "id": "10", "name": "The Unhinged Mule", "ingredients": ["vodka", "ginger beer", "lime", "jalapeño"], "vibe": "kicks back literally", "moods": ["feral"] },
-  { "id": "11", "name": "Sad Girl Sangria", "ingredients": ["red wine", "chopped fruit", "brandy", "feelings"], "vibe": "I'm fine (crying emoji)", "moods": ["dissociating", "soft"] },
-  { "id": "12", "name": "French Exit 75", "ingredients": ["gin", "lemon", "simple syrup", "champagne"], "vibe": "leaving without saying goodbye", "moods": ["fancy"] },
-  { "id": "13", "name": "Hot Girl Paloma", "ingredients": ["tequila", "grapefruit soda", "lime", "tajín rim"], "vibe": "vitamin C counts", "moods": ["fancy", "feral"] },
-  { "id": "14", "name": "Cosmopolitan Renaissance", "ingredients": ["vodka", "cranberry", "lime", "triple sec"], "vibe": "carrie bradshaw core", "moods": ["fancy"] },
-  { "id": "15", "name": "Chaos Caipirinha", "ingredients": ["cachaça", "lime", "sugar", "muddled recklessly"], "vibe": "brazilian summer brainworm", "moods": ["feral"] },
-  { "id": "16", "name": "Gatorade of the Gods", "ingredients": ["gatorade", "vodka", "ice", "desperation"], "vibe": "hydration is a lie", "moods": ["hungover", "feral"] },
-  { "id": "17", "name": "Soft Launch Spritz", "ingredients": ["st germain", "prosecco", "soda", "mint"], "vibe": "blurry hand in the photo", "moods": ["soft", "fancy"] },
-  { "id": "18", "name": "The Anti-Hero", "ingredients": ["bourbon", "lemon", "honey", "ginger"], "vibe": "self-aware and intoxicated", "moods": ["dissociating"] },
-  { "id": "19", "name": "Feral in Firenze", "ingredients": ["amaro", "soda", "orange", "ice"], "vibe": "european bitter girl", "moods": ["feral", "fancy"] },
-  { "id": "20", "name": "Strawberry Sobbing", "ingredients": ["tequila", "strawberry", "lime", "tajín"], "vibe": "crying at brunch", "moods": ["soft", "hungover"] },
-  { "id": "21", "name": "Champagne Problem", "ingredients": ["champagne", "sugar cube", "angostura bitters", "lemon twist"], "vibe": "it's always a problem", "moods": ["fancy", "dissociating"] },
-  { "id": "22", "name": "The Manifestation", "ingredients": ["blanco tequila", "cucumber", "lime", "agave"], "vibe": "my abundance drink", "moods": ["soft", "fancy"] },
-  { "id": "23", "name": "Old Fashioned Regret", "ingredients": ["bourbon", "sugar", "bitters", "orange peel"], "vibe": "texting the ex", "moods": ["dissociating"] },
-  { "id": "24", "name": "Pickle Back Baddie", "ingredients": ["whiskey shot", "pickle juice chaser"], "vibe": "I dare you", "moods": ["feral"] },
-  { "id": "25", "name": "The Disco Witch", "ingredients": ["tequila", "blood orange", "sparkling wine", "glitter"], "vibe": "manifesting under strobe lights", "moods": ["feral", "fancy"] },
-  { "id": "26", "name": "Low Effort Libation", "ingredients": ["white wine", "ice cube", "done"], "vibe": "a spritz is still a spritz", "moods": ["hungover", "dissociating"] },
-  { "id": "27", "name": "The Main Character", "ingredients": ["vodka", "passion fruit", "vanilla", "prosecco sidecar"], "vibe": "pornstar martini but make it mine", "moods": ["fancy"] },
-  { "id": "28", "name": "Delusional Daiquiri", "ingredients": ["white rum", "lime", "sugar", "no blender"], "vibe": "hemingway approved", "moods": ["fancy", "feral"] },
-  { "id": "29", "name": "The Toxic Ex", "ingredients": ["whiskey", "amaro", "cherry", "regret"], "vibe": "one more won't hurt", "moods": ["dissociating"] },
-  { "id": "30", "name": "Soft Girl Sake", "ingredients": ["sake", "pear", "yuzu", "honey"], "vibe": "ceramic cup energy", "moods": ["soft", "fancy"] },
-  { "id": "31", "name": "Feral Frozen Margarita", "ingredients": ["tequila", "lime", "triple sec", "too much salt"], "vibe": "no thoughts just slush", "moods": ["feral", "hungover"] },
-  { "id": "32", "name": "The Therapy Session", "ingredients": ["gin", "chamomile", "lemon", "honey"], "vibe": "drinking my feelings gently", "moods": ["soft"] },
-  { "id": "33", "name": "Bloody Mary Go Round", "ingredients": ["vodka", "tomato juice", "horseradish", "celery", "bacon"], "vibe": "brunch is a personality", "moods": ["hungover"] },
-  { "id": "34", "name": "Dirty Shirley Renaissance", "ingredients": ["vodka", "sprite", "grenadine", "maraschino cherry"], "vibe": "childhood redux", "moods": ["soft", "feral"] },
-  { "id": "35", "name": "The Power Move", "ingredients": ["mezcal", "neat", "orange slice", "sea salt"], "vibe": "I order for myself", "moods": ["fancy", "feral"] },
-  { "id": "36", "name": "Pink Pony Club", "ingredients": ["vodka", "pink lemonade", "raspberry", "mint"], "vibe": "god I'm so anxious", "moods": ["soft"] },
-  { "id": "37", "name": "Mercury Retrograde Martini", "ingredients": ["gin", "vermouth", "lemon twist", "astrological anxiety"], "vibe": "the stars are against me", "moods": ["dissociating", "fancy"] },
-  { "id": "38", "name": "The Divorcée", "ingredients": ["vodka", "pomegranate", "lime", "champagne float"], "vibe": "he gets nothing", "moods": ["fancy", "feral"] },
-  { "id": "39", "name": "Hot Honey Highball", "ingredients": ["bourbon", "hot honey", "lemon", "soda"], "vibe": "sweet with consequences", "moods": ["feral", "soft"] },
-  { "id": "40", "name": "Blackout Buttercup", "ingredients": ["vodka", "rum", "tequila", "gin", "ambition"], "vibe": "we don't remember her", "moods": ["feral", "hungover"] },
-  { "id": "41", "name": "The Wellness Mocktail", "ingredients": ["kombucha", "lime", "ginger", "mint", "club soda"], "vibe": "dry january delusion", "moods": ["soft"] },
-  { "id": "42", "name": "Sad Girl Sazerac", "ingredients": ["rye", "absinthe rinse", "sugar", "peychaud's"], "vibe": "new orleans heartbreak", "moods": ["dissociating"] },
-  { "id": "43", "name": "Rosé All Dissociate", "ingredients": ["rosé", "ice cube", "phone on silent"], "vibe": "we don't talk about it", "moods": ["dissociating", "soft"] },
-  { "id": "44", "name": "The Pilates Princess", "ingredients": ["vodka soda", "lime", "cucumber", "air"], "vibe": "calorie conscious chaos", "moods": ["fancy", "soft"] },
-  { "id": "45", "name": "Matcha Martini Madness", "ingredients": ["vodka", "matcha", "vanilla", "lime"], "vibe": "caffeinated delirium", "moods": ["fancy", "dissociating"] },
-  { "id": "46", "name": "The Feral Fizz", "ingredients": ["gin", "lemon", "sugar", "egg white", "soda"], "vibe": "shaken not stirred unhinged", "moods": ["feral", "fancy"] },
-  { "id": "47", "name": "Dark & Stormy Girlfriend", "ingredients": ["dark rum", "ginger beer", "lime", "resentment"], "vibe": "I saw the texts", "moods": ["feral", "dissociating"] },
-  { "id": "48", "name": "The Sober Curious", "ingredients": ["seedlip", "tonic", "grapefruit", "rosemary"], "vibe": "I'm just tired tonight", "moods": ["soft"] },
-  { "id": "49", "name": "Strawberry Spritz of Fate", "ingredients": ["prosecco", "strawberry liqueur", "mint", "soda"], "vibe": "he will text back", "moods": ["soft", "fancy"] },
-  { "id": "50", "name": "The Hag Juice", "ingredients": ["gin", "cranberry", "lime", "rosemary smoke"], "vibe": "witchy era activated", "moods": ["feral"] },
-  { "id": "51", "name": "Pina Delulu", "ingredients": ["white rum", "coconut cream", "pineapple", "tiny umbrella"], "vibe": "I work from the beach", "moods": ["soft", "fancy"] },
-  { "id": "52", "name": "The Mezcal Medusa", "ingredients": ["mezcal", "lime", "agave", "cucumber", "serrano"], "vibe": "she's smoky and dangerous", "moods": ["feral", "fancy"] },
-  { "id": "53", "name": "Tequila Sunset Tantrum", "ingredients": ["tequila", "orange juice", "grenadine", "ice"], "vibe": "I'm going to bed", "moods": ["hungover", "dissociating"] },
-  { "id": "54", "name": "The Vibe Check", "ingredients": ["vodka", "lychee", "lime", "rose"], "vibe": "passes with flying colors", "moods": ["soft", "fancy"] },
-  { "id": "55", "name": "Whiskey Sour Widow", "ingredients": ["bourbon", "lemon", "sugar", "red wine float"], "vibe": "new york new york", "moods": ["fancy", "dissociating"] },
-  { "id": "56", "name": "Bodega Beer", "ingredients": ["tallboy", "lime wedge", "paper bag"], "vibe": "stoop season", "moods": ["feral", "hungover"] },
-  { "id": "57", "name": "Cucumber Clarity", "ingredients": ["gin", "cucumber", "lime", "tonic", "mint"], "vibe": "I had a breakthrough", "moods": ["soft"] },
-  { "id": "58", "name": "The Unserious", "ingredients": ["midori", "vodka", "pineapple juice", "glow stick"], "vibe": "2007 called", "moods": ["feral"] },
-  { "id": "59", "name": "Amaro After Dark", "ingredients": ["amaro", "espresso", "orange twist"], "vibe": "digestif dominatrix", "moods": ["fancy", "dissociating"] },
-  { "id": "60", "name": "The Wine Mom", "ingredients": ["cheap pinot", "extra large glass", "the news on mute"], "vibe": "boundaries in shambles", "moods": ["dissociating"] },
-  { "id": "61", "name": "Velvet Manhattan", "ingredients": ["rye", "sweet vermouth", "bitters", "cherry"], "vibe": "I wear red lipstick to the bar", "moods": ["fancy"] },
-  { "id": "62", "name": "Fernet & Forget", "ingredients": ["fernet", "coke", "lime"], "vibe": "the bartender's handshake", "moods": ["feral"] },
-  { "id": "63", "name": "Pink Cadillac Crisis", "ingredients": ["tequila", "grand marnier", "lime", "cranberry"], "vibe": "driving off into the sunset", "moods": ["fancy", "feral"] },
-  { "id": "64", "name": "The Situationship", "ingredients": ["gin", "grapefruit", "elderflower", "confusion"], "vibe": "what are we", "moods": ["dissociating", "soft"] },
-  { "id": "65", "name": "Boba Bellini", "ingredients": ["prosecco", "peach purée", "tapioca pearls", "chaos"], "vibe": "I asked for this", "moods": ["feral", "fancy"] },
-  { "id": "66", "name": "The Gaslight Gimlet", "ingredients": ["gin", "lime cordial", "cucumber"], "vibe": "I wasn't drunk you were", "moods": ["feral"] },
-  { "id": "67", "name": "Coconut Cream Dream", "ingredients": ["white rum", "coconut cream", "lime", "mint"], "vibe": "tropical delusion", "moods": ["soft"] },
-  { "id": "68", "name": "The Final Boss", "ingredients": ["long island iced tea", "regret", "a ride home"], "vibe": "tomorrow I'll be dead", "moods": ["feral", "hungover"] },
-  { "id": "69", "name": "Spicy Margarita Manifesto", "ingredients": ["tequila", "lime", "jalapeño", "agave", "tajín rim"], "vibe": "burn it all down", "moods": ["feral", "fancy"] },
-  { "id": "70", "name": "Kombucha Courage", "ingredients": ["ginger kombucha", "vodka", "lemon", "mint"], "vibe": "gut-healthy crisis", "moods": ["soft", "hungover"] },
-  { "id": "71", "name": "The Goblin Grog", "ingredients": ["dark rum", "lime", "honey", "cinnamon", "butter"], "vibe": "pirate girl winter", "moods": ["feral", "soft"] },
-  { "id": "72", "name": "Rosewater Reverie", "ingredients": ["gin", "rosewater", "lemon", "egg white"], "vibe": "persian princess mode", "moods": ["soft", "fancy"] },
-  { "id": "73", "name": "Sake to Me", "ingredients": ["sake", "cucumber", "lime", "elderflower"], "vibe": "delicate but dangerous", "moods": ["soft", "fancy"] },
-  { "id": "74", "name": "Bellini Breakdown", "ingredients": ["prosecco", "peach", "one silent tear"], "vibe": "I'm fine I said", "moods": ["dissociating", "soft"] },
-  { "id": "75", "name": "Hot Toddy Heal Me", "ingredients": ["whiskey", "lemon", "honey", "clove", "hot water"], "vibe": "it's medicinal your honor", "moods": ["soft", "hungover"] },
-  { "id": "76", "name": "The Freelancer Fuel", "ingredients": ["espresso martini", "but double shot", "on a tuesday"], "vibe": "deadline adjacent", "moods": ["dissociating", "fancy"] },
-  { "id": "77", "name": "The Parisienne", "ingredients": ["champagne", "st germain", "lemon twist"], "vibe": "je ne regrette rien", "moods": ["fancy", "soft"] },
-  { "id": "78", "name": "The Freezer Burn", "ingredients": ["gin", "vermouth", "lemon twist", "optimism"], "vibe": "I'm making it work", "moods": ["dissociating"] }
+  {
+    "id": "1",
+    "name": "Lavender Haze Spritz",
+    "ingredients": [
+      "prosecco",
+      "lavender syrup",
+      "soda water",
+      "lemon twist"
+    ],
+    "vibe": "Taylor would approve",
+    "moods": [
+      "soft",
+      "fancy"
+    ]
+  },
+  {
+    "id": "2",
+    "name": "The Gossip Girl",
+    "ingredients": [
+      "vodka",
+      "elderflower liqueur",
+      "champagne",
+      "cucumber slice"
+    ],
+    "vibe": "xoxo, you know you love me",
+    "moods": [
+      "fancy"
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Espresso Martini of Denial",
+    "ingredients": [
+      "vodka",
+      "espresso",
+      "kahlua",
+      "delusion"
+    ],
+    "vibe": "I'll sleep when I'm dead",
+    "moods": [
+      "fancy"
+    ]
+  },
+  {
+    "id": "4",
+    "name": "Pink Drink Delulu",
+    "ingredients": [
+      "rosé",
+      "strawberry purée",
+      "lime",
+      "basil"
+    ],
+    "vibe": "summer in a glass",
+    "moods": [
+      "soft",
+      "fancy"
+    ]
+  },
+  {
+    "id": "5",
+    "name": "Feral Negroni",
+    "ingredients": [
+      "gin",
+      "campari",
+      "sweet vermouth",
+      "orange peel"
+    ],
+    "vibe": "I contain multitudes and bitters",
+    "moods": [
+      "feral",
+      "fancy"
+    ]
+  },
+  {
+    "id": "6",
+    "name": "Hangover in Heels",
+    "ingredients": [
+      "tomato juice",
+      "vodka",
+      "tabasco",
+      "celery",
+      "prayer"
+    ],
+    "vibe": "hair of the dog that bit me",
+    "moods": [
+      "hungover"
+    ]
+  },
+  {
+    "id": "7",
+    "name": "The Coquette",
+    "ingredients": [
+      "pink gin",
+      "rose syrup",
+      "lemon",
+      "egg white",
+      "edible flower"
+    ],
+    "vibe": "tied with a bow",
+    "moods": [
+      "soft",
+      "fancy"
+    ]
+  },
+  {
+    "id": "8",
+    "name": "Dirty Martini Diaries",
+    "ingredients": [
+      "gin",
+      "dry vermouth",
+      "olive brine",
+      "three olives"
+    ],
+    "vibe": "I have an opinion about gin",
+    "moods": [
+      "fancy",
+      "feral"
+    ]
+  },
+  {
+    "id": "9",
+    "name": "Aperol Amnesia",
+    "ingredients": [
+      "aperol",
+      "prosecco",
+      "soda",
+      "orange slice"
+    ],
+    "vibe": "it's a vibe not a drink",
+    "moods": [
+      "soft",
+      "fancy"
+    ]
+  },
+  {
+    "id": "10",
+    "name": "The Unhinged Mule",
+    "ingredients": [
+      "vodka",
+      "ginger beer",
+      "lime",
+      "jalapeño"
+    ],
+    "vibe": "kicks back literally",
+    "moods": [
+      "feral"
+    ]
+  },
+  {
+    "id": "11",
+    "name": "Sad Girl Sangria",
+    "ingredients": [
+      "red wine",
+      "chopped fruit",
+      "brandy",
+      "feelings"
+    ],
+    "vibe": "I'm fine (crying emoji)",
+    "moods": [
+      "soft"
+    ]
+  },
+  {
+    "id": "12",
+    "name": "French Exit 75",
+    "ingredients": [
+      "gin",
+      "lemon",
+      "simple syrup",
+      "champagne"
+    ],
+    "vibe": "leaving without saying goodbye",
+    "moods": [
+      "fancy"
+    ]
+  },
+  {
+    "id": "13",
+    "name": "Hot Girl Paloma",
+    "ingredients": [
+      "tequila",
+      "grapefruit soda",
+      "lime",
+      "tajín rim"
+    ],
+    "vibe": "vitamin C counts",
+    "moods": [
+      "fancy",
+      "feral"
+    ]
+  },
+  {
+    "id": "14",
+    "name": "Cosmopolitan Renaissance",
+    "ingredients": [
+      "vodka",
+      "cranberry",
+      "lime",
+      "triple sec"
+    ],
+    "vibe": "carrie bradshaw core",
+    "moods": [
+      "fancy"
+    ]
+  },
+  {
+    "id": "15",
+    "name": "Chaos Caipirinha",
+    "ingredients": [
+      "cachaça",
+      "lime",
+      "sugar",
+      "muddled recklessly"
+    ],
+    "vibe": "brazilian summer brainworm",
+    "moods": [
+      "feral"
+    ]
+  },
+  {
+    "id": "16",
+    "name": "Gatorade of the Gods",
+    "ingredients": [
+      "gatorade",
+      "vodka",
+      "ice",
+      "desperation"
+    ],
+    "vibe": "hydration is a lie",
+    "moods": [
+      "hungover",
+      "feral"
+    ]
+  },
+  {
+    "id": "17",
+    "name": "Soft Launch Spritz",
+    "ingredients": [
+      "st germain",
+      "prosecco",
+      "soda",
+      "mint"
+    ],
+    "vibe": "blurry hand in the photo",
+    "moods": [
+      "soft",
+      "fancy"
+    ]
+  },
+  {
+    "id": "18",
+    "name": "The Anti-Hero",
+    "ingredients": [
+      "bourbon",
+      "lemon",
+      "honey",
+      "ginger"
+    ],
+    "vibe": "self-aware and intoxicated",
+    "moods": []
+  },
+  {
+    "id": "19",
+    "name": "Feral in Firenze",
+    "ingredients": [
+      "amaro",
+      "soda",
+      "orange",
+      "ice"
+    ],
+    "vibe": "european bitter girl",
+    "moods": [
+      "feral",
+      "fancy"
+    ]
+  },
+  {
+    "id": "20",
+    "name": "Strawberry Sobbing",
+    "ingredients": [
+      "tequila",
+      "strawberry",
+      "lime",
+      "tajín"
+    ],
+    "vibe": "crying at brunch",
+    "moods": [
+      "soft",
+      "hungover"
+    ]
+  },
+  {
+    "id": "21",
+    "name": "Champagne Problem",
+    "ingredients": [
+      "champagne",
+      "sugar cube",
+      "angostura bitters",
+      "lemon twist"
+    ],
+    "vibe": "it's always a problem",
+    "moods": [
+      "fancy"
+    ]
+  },
+  {
+    "id": "22",
+    "name": "The Manifestation",
+    "ingredients": [
+      "blanco tequila",
+      "cucumber",
+      "lime",
+      "agave"
+    ],
+    "vibe": "my abundance drink",
+    "moods": [
+      "soft",
+      "fancy"
+    ]
+  },
+  {
+    "id": "23",
+    "name": "Old Fashioned Regret",
+    "ingredients": [
+      "bourbon",
+      "sugar",
+      "bitters",
+      "orange peel"
+    ],
+    "vibe": "texting the ex",
+    "moods": []
+  },
+  {
+    "id": "24",
+    "name": "Pickle Back Baddie",
+    "ingredients": [
+      "whiskey shot",
+      "pickle juice chaser"
+    ],
+    "vibe": "I dare you",
+    "moods": [
+      "feral"
+    ]
+  },
+  {
+    "id": "25",
+    "name": "The Disco Witch",
+    "ingredients": [
+      "tequila",
+      "blood orange",
+      "sparkling wine",
+      "glitter"
+    ],
+    "vibe": "manifesting under strobe lights",
+    "moods": [
+      "feral",
+      "fancy"
+    ]
+  },
+  {
+    "id": "26",
+    "name": "Low Effort Libation",
+    "ingredients": [
+      "white wine",
+      "ice cube",
+      "done"
+    ],
+    "vibe": "a spritz is still a spritz",
+    "moods": [
+      "hungover"
+    ]
+  },
+  {
+    "id": "27",
+    "name": "The Main Character",
+    "ingredients": [
+      "vodka",
+      "passion fruit",
+      "vanilla",
+      "prosecco sidecar"
+    ],
+    "vibe": "pornstar martini but make it mine",
+    "moods": [
+      "fancy"
+    ]
+  },
+  {
+    "id": "28",
+    "name": "Delusional Daiquiri",
+    "ingredients": [
+      "white rum",
+      "lime",
+      "sugar",
+      "no blender"
+    ],
+    "vibe": "hemingway approved",
+    "moods": [
+      "fancy",
+      "feral"
+    ]
+  },
+  {
+    "id": "29",
+    "name": "The Toxic Ex",
+    "ingredients": [
+      "whiskey",
+      "amaro",
+      "cherry",
+      "regret"
+    ],
+    "vibe": "one more won't hurt",
+    "moods": []
+  },
+  {
+    "id": "30",
+    "name": "Soft Girl Sake",
+    "ingredients": [
+      "sake",
+      "pear",
+      "yuzu",
+      "honey"
+    ],
+    "vibe": "ceramic cup energy",
+    "moods": [
+      "soft",
+      "fancy"
+    ]
+  },
+  {
+    "id": "31",
+    "name": "Feral Frozen Margarita",
+    "ingredients": [
+      "tequila",
+      "lime",
+      "triple sec",
+      "too much salt"
+    ],
+    "vibe": "no thoughts just slush",
+    "moods": [
+      "feral",
+      "hungover"
+    ]
+  },
+  {
+    "id": "32",
+    "name": "The Therapy Session",
+    "ingredients": [
+      "gin",
+      "chamomile",
+      "lemon",
+      "honey"
+    ],
+    "vibe": "drinking my feelings gently",
+    "moods": [
+      "soft"
+    ]
+  },
+  {
+    "id": "33",
+    "name": "Bloody Mary Go Round",
+    "ingredients": [
+      "vodka",
+      "tomato juice",
+      "horseradish",
+      "celery",
+      "bacon"
+    ],
+    "vibe": "brunch is a personality",
+    "moods": [
+      "hungover"
+    ]
+  },
+  {
+    "id": "34",
+    "name": "Dirty Shirley Renaissance",
+    "ingredients": [
+      "vodka",
+      "sprite",
+      "grenadine",
+      "maraschino cherry"
+    ],
+    "vibe": "childhood redux",
+    "moods": [
+      "soft",
+      "feral"
+    ]
+  },
+  {
+    "id": "35",
+    "name": "The Power Move",
+    "ingredients": [
+      "mezcal",
+      "neat",
+      "orange slice",
+      "sea salt"
+    ],
+    "vibe": "I order for myself",
+    "moods": [
+      "fancy",
+      "feral"
+    ]
+  },
+  {
+    "id": "36",
+    "name": "Pink Pony Club",
+    "ingredients": [
+      "vodka",
+      "pink lemonade",
+      "raspberry",
+      "mint"
+    ],
+    "vibe": "god I'm so anxious",
+    "moods": [
+      "soft"
+    ]
+  },
+  {
+    "id": "37",
+    "name": "Mercury Retrograde Martini",
+    "ingredients": [
+      "gin",
+      "vermouth",
+      "lemon twist",
+      "astrological anxiety"
+    ],
+    "vibe": "the stars are against me",
+    "moods": [
+      "fancy"
+    ]
+  },
+  {
+    "id": "38",
+    "name": "The Divorcée",
+    "ingredients": [
+      "vodka",
+      "pomegranate",
+      "lime",
+      "champagne float"
+    ],
+    "vibe": "he gets nothing",
+    "moods": [
+      "fancy",
+      "feral"
+    ]
+  },
+  {
+    "id": "39",
+    "name": "Hot Honey Highball",
+    "ingredients": [
+      "bourbon",
+      "hot honey",
+      "lemon",
+      "soda"
+    ],
+    "vibe": "sweet with consequences",
+    "moods": [
+      "feral",
+      "soft"
+    ]
+  },
+  {
+    "id": "40",
+    "name": "Blackout Buttercup",
+    "ingredients": [
+      "vodka",
+      "rum",
+      "tequila",
+      "gin",
+      "ambition"
+    ],
+    "vibe": "we don't remember her",
+    "moods": [
+      "feral",
+      "hungover"
+    ]
+  },
+  {
+    "id": "41",
+    "name": "The Wellness Mocktail",
+    "ingredients": [
+      "kombucha",
+      "lime",
+      "ginger",
+      "mint",
+      "club soda"
+    ],
+    "vibe": "dry january delusion",
+    "moods": [
+      "soft"
+    ]
+  },
+  {
+    "id": "42",
+    "name": "Sad Girl Sazerac",
+    "ingredients": [
+      "rye",
+      "absinthe rinse",
+      "sugar",
+      "peychaud's"
+    ],
+    "vibe": "new orleans heartbreak",
+    "moods": []
+  },
+  {
+    "id": "43",
+    "name": "Rosé All Dissociate",
+    "ingredients": [
+      "rosé",
+      "ice cube",
+      "phone on silent"
+    ],
+    "vibe": "we don't talk about it",
+    "moods": [
+      "soft"
+    ]
+  },
+  {
+    "id": "44",
+    "name": "The Pilates Princess",
+    "ingredients": [
+      "vodka soda",
+      "lime",
+      "cucumber",
+      "air"
+    ],
+    "vibe": "calorie conscious chaos",
+    "moods": [
+      "fancy",
+      "soft"
+    ]
+  },
+  {
+    "id": "45",
+    "name": "Matcha Martini Madness",
+    "ingredients": [
+      "vodka",
+      "matcha",
+      "vanilla",
+      "lime"
+    ],
+    "vibe": "caffeinated delirium",
+    "moods": [
+      "fancy"
+    ]
+  },
+  {
+    "id": "46",
+    "name": "The Feral Fizz",
+    "ingredients": [
+      "gin",
+      "lemon",
+      "sugar",
+      "egg white",
+      "soda"
+    ],
+    "vibe": "shaken not stirred unhinged",
+    "moods": [
+      "feral",
+      "fancy"
+    ]
+  },
+  {
+    "id": "47",
+    "name": "Dark & Stormy Girlfriend",
+    "ingredients": [
+      "dark rum",
+      "ginger beer",
+      "lime",
+      "resentment"
+    ],
+    "vibe": "I saw the texts",
+    "moods": [
+      "feral"
+    ]
+  },
+  {
+    "id": "48",
+    "name": "The Sober Curious",
+    "ingredients": [
+      "seedlip",
+      "tonic",
+      "grapefruit",
+      "rosemary"
+    ],
+    "vibe": "I'm just tired tonight",
+    "moods": [
+      "soft"
+    ]
+  },
+  {
+    "id": "49",
+    "name": "Strawberry Spritz of Fate",
+    "ingredients": [
+      "prosecco",
+      "strawberry liqueur",
+      "mint",
+      "soda"
+    ],
+    "vibe": "he will text back",
+    "moods": [
+      "soft",
+      "fancy"
+    ]
+  },
+  {
+    "id": "50",
+    "name": "The Hag Juice",
+    "ingredients": [
+      "gin",
+      "cranberry",
+      "lime",
+      "rosemary smoke"
+    ],
+    "vibe": "witchy era activated",
+    "moods": [
+      "feral"
+    ]
+  },
+  {
+    "id": "51",
+    "name": "Pina Delulu",
+    "ingredients": [
+      "white rum",
+      "coconut cream",
+      "pineapple",
+      "tiny umbrella"
+    ],
+    "vibe": "I work from the beach",
+    "moods": [
+      "soft",
+      "fancy"
+    ]
+  },
+  {
+    "id": "52",
+    "name": "The Mezcal Medusa",
+    "ingredients": [
+      "mezcal",
+      "lime",
+      "agave",
+      "cucumber",
+      "serrano"
+    ],
+    "vibe": "she's smoky and dangerous",
+    "moods": [
+      "feral",
+      "fancy"
+    ]
+  },
+  {
+    "id": "53",
+    "name": "Tequila Sunset Tantrum",
+    "ingredients": [
+      "tequila",
+      "orange juice",
+      "grenadine",
+      "ice"
+    ],
+    "vibe": "I'm going to bed",
+    "moods": [
+      "hungover"
+    ]
+  },
+  {
+    "id": "54",
+    "name": "The Vibe Check",
+    "ingredients": [
+      "vodka",
+      "lychee",
+      "lime",
+      "rose"
+    ],
+    "vibe": "passes with flying colors",
+    "moods": [
+      "soft",
+      "fancy"
+    ]
+  },
+  {
+    "id": "55",
+    "name": "Whiskey Sour Widow",
+    "ingredients": [
+      "bourbon",
+      "lemon",
+      "sugar",
+      "red wine float"
+    ],
+    "vibe": "new york new york",
+    "moods": [
+      "fancy"
+    ]
+  },
+  {
+    "id": "56",
+    "name": "Bodega Beer",
+    "ingredients": [
+      "tallboy",
+      "lime wedge",
+      "paper bag"
+    ],
+    "vibe": "stoop season",
+    "moods": [
+      "feral",
+      "hungover"
+    ]
+  },
+  {
+    "id": "57",
+    "name": "Cucumber Clarity",
+    "ingredients": [
+      "gin",
+      "cucumber",
+      "lime",
+      "tonic",
+      "mint"
+    ],
+    "vibe": "I had a breakthrough",
+    "moods": [
+      "soft"
+    ]
+  },
+  {
+    "id": "58",
+    "name": "The Unserious",
+    "ingredients": [
+      "midori",
+      "vodka",
+      "pineapple juice",
+      "glow stick"
+    ],
+    "vibe": "2007 called",
+    "moods": [
+      "feral"
+    ]
+  },
+  {
+    "id": "59",
+    "name": "Amaro After Dark",
+    "ingredients": [
+      "amaro",
+      "espresso",
+      "orange twist"
+    ],
+    "vibe": "digestif dominatrix",
+    "moods": [
+      "fancy"
+    ]
+  },
+  {
+    "id": "60",
+    "name": "The Wine Mom",
+    "ingredients": [
+      "cheap pinot",
+      "extra large glass",
+      "the news on mute"
+    ],
+    "vibe": "boundaries in shambles",
+    "moods": []
+  },
+  {
+    "id": "61",
+    "name": "Velvet Manhattan",
+    "ingredients": [
+      "rye",
+      "sweet vermouth",
+      "bitters",
+      "cherry"
+    ],
+    "vibe": "I wear red lipstick to the bar",
+    "moods": [
+      "fancy"
+    ]
+  },
+  {
+    "id": "62",
+    "name": "Fernet & Forget",
+    "ingredients": [
+      "fernet",
+      "coke",
+      "lime"
+    ],
+    "vibe": "the bartender's handshake",
+    "moods": [
+      "feral"
+    ]
+  },
+  {
+    "id": "63",
+    "name": "Pink Cadillac Crisis",
+    "ingredients": [
+      "tequila",
+      "grand marnier",
+      "lime",
+      "cranberry"
+    ],
+    "vibe": "driving off into the sunset",
+    "moods": [
+      "fancy",
+      "feral"
+    ]
+  },
+  {
+    "id": "64",
+    "name": "The Situationship",
+    "ingredients": [
+      "gin",
+      "grapefruit",
+      "elderflower",
+      "confusion"
+    ],
+    "vibe": "what are we",
+    "moods": [
+      "soft"
+    ]
+  },
+  {
+    "id": "65",
+    "name": "Boba Bellini",
+    "ingredients": [
+      "prosecco",
+      "peach purée",
+      "tapioca pearls",
+      "chaos"
+    ],
+    "vibe": "I asked for this",
+    "moods": [
+      "feral",
+      "fancy"
+    ]
+  },
+  {
+    "id": "66",
+    "name": "The Gaslight Gimlet",
+    "ingredients": [
+      "gin",
+      "lime cordial",
+      "cucumber"
+    ],
+    "vibe": "I wasn't drunk you were",
+    "moods": [
+      "feral"
+    ]
+  },
+  {
+    "id": "67",
+    "name": "Coconut Cream Dream",
+    "ingredients": [
+      "white rum",
+      "coconut cream",
+      "lime",
+      "mint"
+    ],
+    "vibe": "tropical delusion",
+    "moods": [
+      "soft"
+    ]
+  },
+  {
+    "id": "68",
+    "name": "The Final Boss",
+    "ingredients": [
+      "long island iced tea",
+      "regret",
+      "a ride home"
+    ],
+    "vibe": "tomorrow I'll be dead",
+    "moods": [
+      "feral",
+      "hungover"
+    ]
+  },
+  {
+    "id": "69",
+    "name": "Spicy Margarita Manifesto",
+    "ingredients": [
+      "tequila",
+      "lime",
+      "jalapeño",
+      "agave",
+      "tajín rim"
+    ],
+    "vibe": "burn it all down",
+    "moods": [
+      "feral",
+      "fancy"
+    ]
+  },
+  {
+    "id": "70",
+    "name": "Kombucha Courage",
+    "ingredients": [
+      "ginger kombucha",
+      "vodka",
+      "lemon",
+      "mint"
+    ],
+    "vibe": "gut-healthy crisis",
+    "moods": [
+      "soft",
+      "hungover"
+    ]
+  },
+  {
+    "id": "71",
+    "name": "The Goblin Grog",
+    "ingredients": [
+      "dark rum",
+      "lime",
+      "honey",
+      "cinnamon",
+      "butter"
+    ],
+    "vibe": "pirate girl winter",
+    "moods": [
+      "feral",
+      "soft"
+    ]
+  },
+  {
+    "id": "72",
+    "name": "Rosewater Reverie",
+    "ingredients": [
+      "gin",
+      "rosewater",
+      "lemon",
+      "egg white"
+    ],
+    "vibe": "persian princess mode",
+    "moods": [
+      "soft",
+      "fancy"
+    ]
+  },
+  {
+    "id": "73",
+    "name": "Sake to Me",
+    "ingredients": [
+      "sake",
+      "cucumber",
+      "lime",
+      "elderflower"
+    ],
+    "vibe": "delicate but dangerous",
+    "moods": [
+      "soft",
+      "fancy"
+    ]
+  },
+  {
+    "id": "74",
+    "name": "Bellini Breakdown",
+    "ingredients": [
+      "prosecco",
+      "peach",
+      "one silent tear"
+    ],
+    "vibe": "I'm fine I said",
+    "moods": [
+      "soft"
+    ]
+  },
+  {
+    "id": "75",
+    "name": "Hot Toddy Heal Me",
+    "ingredients": [
+      "whiskey",
+      "lemon",
+      "honey",
+      "clove",
+      "hot water"
+    ],
+    "vibe": "it's medicinal your honor",
+    "moods": [
+      "soft",
+      "hungover"
+    ]
+  },
+  {
+    "id": "76",
+    "name": "The Freelancer Fuel",
+    "ingredients": [
+      "espresso martini",
+      "but double shot",
+      "on a tuesday"
+    ],
+    "vibe": "deadline adjacent",
+    "moods": [
+      "fancy"
+    ]
+  },
+  {
+    "id": "77",
+    "name": "The Parisienne",
+    "ingredients": [
+      "champagne",
+      "st germain",
+      "lemon twist"
+    ],
+    "vibe": "je ne regrette rien",
+    "moods": [
+      "fancy",
+      "soft"
+    ]
+  },
+  {
+    "id": "78",
+    "name": "The Freezer Burn",
+    "ingredients": [
+      "gin",
+      "vermouth",
+      "lemon twist",
+      "optimism"
+    ],
+    "vibe": "I'm making it work",
+    "moods": []
+  }
 ]

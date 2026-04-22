@@ -1,4 +1,4 @@
-export type Mood = "soft" | "feral" | "dissociating" | "fancy" | "hungover";
+export type Mood = "soft" | "feral" | "fancy" | "hungover";
 
 export interface Recipe {
   id: string;
