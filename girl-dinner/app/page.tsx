@@ -51,11 +51,8 @@ export default function Home() {
   const [soundEnabled, setSoundEnabled] = useState(false);
   const [girlCount, setGirlCount] = useState(0);
   const [isFriday, setIsFriday] = useState(false);
-  const [btnHovered, setBtnHovered] = useState(false);
-  const [btnGrad, setBtnGrad] = useState({ x: 50, y: 50 });
   const buttonRef = useRef<HTMLButtonElement>(null);
 
-  // Client-only init to avoid hydration mismatch
   useEffect(() => {
     setMoods(loadMoods());
     setGreeting(getGreeting());
@@ -66,7 +63,6 @@ export default function Home() {
     setMounted(true);
   }, []);
 
-  // Initial randomize once moods are loaded
   useEffect(() => {
     if (!mounted) return;
     const d = pickFiltered(allRecipes, moods);
@@ -80,19 +76,16 @@ export default function Home() {
     }
   }, [mounted]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Persist moods
   useEffect(() => {
     if (!mounted) return;
     localStorage.setItem("girl-dinner-moods", JSON.stringify(moods));
   }, [moods, mounted]);
 
-  // Persist sound preference
   useEffect(() => {
     if (!mounted) return;
     localStorage.setItem("girl-dinner-sound", String(soundEnabled));
   }, [soundEnabled, mounted]);
 
-  // Subtitle auto-rotation every 5 seconds
   useEffect(() => {
     if (!mounted) return;
     const interval = setInterval(() => {
@@ -102,7 +95,6 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [mounted]);
 
-  // Girl count oscillation
   useEffect(() => {
     if (!mounted) return;
     const interval = setInterval(() => {
@@ -141,7 +133,7 @@ export default function Home() {
       particleCount: 60,
       spread: 70,
       origin: { x, y },
-      colors: ["#ff4d8f", "#c9184a", "#f7cad0", "#fff"],
+      colors: ["#FF3D8B", "#D91E6F", "#5EEAD4", "#F5E6F0"],
       disableForReducedMotion: true,
     });
   }, []);
@@ -155,13 +147,11 @@ export default function Home() {
     setSubtitleKey((k) => k + 1);
     setGreeting(getGreeting());
 
-    // Rapid cycle through random names
     const interval = setInterval(() => {
       setDinner(pick(allRecipes));
       setDrink(pick(allCocktails));
     }, SHUFFLE_INTERVAL);
 
-    // Settle on final filtered pick
     setTimeout(() => {
       clearInterval(interval);
       const d = pickFiltered(allRecipes, moods);
@@ -186,21 +176,37 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen flex flex-col items-center px-6 py-12 font-sans">
-      {/* Header */}
-      <header className="text-center mb-8">
+    <main className="two-zone-bg relative min-h-screen flex flex-col items-center px-6 pt-20 pb-12 font-sans overflow-hidden">
+
+      {/* Corner plants — framing all four corners, tinted magenta, slow sway */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        <span className="corner-plant corner-plant--tl">🌿</span>
+        <span className="corner-plant corner-plant--tr">🌿</span>
+        <span className="corner-plant corner-plant--bl">🌿</span>
+        <span className="corner-plant corner-plant--br">🌿</span>
+      </div>
+
+      {/* Header / storefront sign */}
+      <header className="relative text-center mb-10 z-10">
         {mounted && greeting && (
-          <p className="text-sm text-wine/70 mb-3 tracking-wide uppercase">
+          <p className="neon-cyan-text text-[11px] mb-5 tracking-[0.32em] uppercase font-medium">
             {greeting}
           </p>
         )}
-        <h1 className="font-serif italic font-bold text-wine tracking-tight text-[72px] leading-none">
-          girl dinner&trade;
+        <h1
+          className="neon-title font-sans font-black uppercase text-[72px] sm:text-[96px] leading-[0.95]"
+          style={{ letterSpacing: "-0.03em" }}
+        >
+          <span className="light-sweep">
+            girl di<span className="neon-flicker">n</span>ner
+          </span>
+          <span className="neon-tm text-[40px] sm:text-[52px] align-top ml-1">™</span>
         </h1>
         {mounted && subtitle && (
           <p
             key={subtitleKey}
-            className="animate-fade-in mt-4 font-hand text-xl text-wine/70 tracking-wide"
+            className="animate-fade-in mt-6 font-hand text-2xl text-[#FFD5E5] tracking-wide"
+            style={{ textShadow: "0 0 12px rgba(255, 61, 139, 0.35)" }}
           >
             {subtitle}
           </p>
@@ -209,106 +215,116 @@ export default function Home() {
 
       {/* Friday mode banner */}
       {mounted && isFriday && (
-        <div className="mb-6 px-6 py-2 rounded-full bg-gradient-to-r from-gold/20 via-rose/20 to-mauve/20 border border-gold/30 text-center">
-          <p className="text-sm text-wine tracking-wide font-medium">
-            ✨ it&apos;s friday. double everything. that&apos;s the rule. ✨
+        <div className="relative z-10 mb-8 px-6 py-2 rounded-full bg-black/40 border border-[#5EEAD4]/50 text-center"
+             style={{ boxShadow: "0 0 18px rgba(94, 234, 212, 0.25)" }}>
+          <p className="text-[12px] neon-cyan-text tracking-[0.2em] uppercase font-semibold">
+            ✦ it&apos;s friday. double everything. that&apos;s the rule. ✦
           </p>
         </div>
       )}
 
-      {/* Mood filter chips */}
-      <div className="mb-6 w-full max-w-lg">
+      {/* Filter pills — between zones */}
+      <div className="relative z-10 mb-10 w-full max-w-lg">
         <MoodChips selected={moods} onChange={handleMoodChange} />
       </div>
 
-      {/* Cards or fallback */}
+      {/* Cards — mirrored interior */}
       {noMatch ? (
-        <div className="w-full max-w-lg text-center py-16">
-          <p className="font-serif italic text-2xl text-dusty">
+        <div className="relative z-10 w-full max-w-lg text-center py-16">
+          <p className="neon-pink-text font-sans font-black uppercase text-2xl tracking-wider">
             no girl dinner matches this energy.
           </p>
-          <p className="text-base text-dusty/70 mt-2">
+          <p className="text-base text-[#F5E6F0]/50 mt-3">
             try another vibe.
           </p>
         </div>
       ) : (
-        <>
-          <div
-            key={animKey}
-            className="animate-fade-in w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6"
-          >
-            <RecipeCard
-              item={dinner}
-              label="tonight's dinner"
-              emoji="&#127869;"
-              dotColor="bg-rose"
-              isShuffling={isShuffling}
-            />
-            <RecipeCard
-              item={drink}
-              label="pair with"
-              emoji="&#127864;"
-              dotColor="bg-mauve"
-              isShuffling={isShuffling}
-              fridayMode={isFriday}
-            />
-          </div>
-        </>
+        <div
+          key={animKey}
+          className="animate-fade-in relative z-10 w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6"
+        >
+          <RecipeCard
+            item={dinner}
+            label="tonight's dinner"
+            emoji="&#127869;"
+            accent="pink"
+            isShuffling={isShuffling}
+          />
+          <RecipeCard
+            item={drink}
+            label="pair with"
+            emoji="&#127864;"
+            accent="cyan"
+            isShuffling={isShuffling}
+            fridayMode={isFriday}
+          />
+        </div>
       )}
 
-      {/* Randomize button */}
-      <button
-        ref={buttonRef}
-        onClick={randomize}
-        disabled={isShuffling}
-        onMouseMove={(e) => {
-          const r = e.currentTarget.getBoundingClientRect();
-          setBtnGrad({
-            x: ((e.clientX - r.left) / r.width) * 100,
-            y: ((e.clientY - r.top) / r.height) * 100,
-          });
-        }}
-        onMouseEnter={() => setBtnHovered(true)}
-        onMouseLeave={() => setBtnHovered(false)}
-        style={btnHovered ? {
-          background: `radial-gradient(circle at ${btnGrad.x}% ${btnGrad.y}%, #FFE4EE 0%, #EEE0F5 55%, transparent 100%)`,
-        } : undefined}
-        className="mt-8 px-10 py-3 rounded-full text-base font-medium tracking-wide
-                   text-wine border border-wine/30 bg-petal/50
-                   hover:border-wine/50 active:scale-95
-                   transition-all duration-200 cursor-pointer
-                   disabled:opacity-40 disabled:cursor-not-allowed"
-      >
-        {isShuffling ? "shuffling..." : "randomize ✨"}
-      </button>
-
-      {/* Footer */}
-      <footer className="mt-auto pt-10 pb-6 text-center flex flex-col items-center gap-4">
-        <nav className="flex items-center gap-5 text-sm text-wine/70 font-medium tracking-wide">
-          <Link href="/dishes" className="hover:text-wine transition-colors">
-            all dishes
-          </Link>
-          <span className="text-wine/25">·</span>
-          <Link href="/cocktails" className="hover:text-wine transition-colors">
-            all cocktails
-          </Link>
-        </nav>
-        {mounted && (
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-petal/60 border border-rose/20 text-sm text-wine/75">
-            🍽️ {girlCount.toLocaleString()} girls currently eating
-          </span>
-        )}
-        {mounted && !noMatch && <ShareCard dinner={dinner} drink={drink} />}
-        {mounted && (
+      {/* Action bar + social proof + footer nav, grouped into a single anchored stack */}
+      <div className="relative z-10 mt-auto w-full max-w-[600px] flex flex-col items-center pt-14">
+        {/* GROUP A — primary actions */}
+        <div className="flex flex-col sm:flex-row items-center gap-4">
           <button
-            onClick={() => setSoundEnabled((v) => !v)}
-            className="text-wine/40 hover:text-wine/70 transition-colors cursor-pointer text-base"
-            title={soundEnabled ? "mute randomize ding" : "enable randomize ding"}
+            ref={buttonRef}
+            onClick={randomize}
+            disabled={isShuffling}
+            className="neon-button px-10 py-3.5 rounded-full text-[13px] cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
           >
-            {soundEnabled ? "🔔" : "🔕"}
+            {isShuffling ? "shuffling…" : "randomize ✦"}
           </button>
+          {mounted && !noMatch && <ShareCard dinner={dinner} drink={drink} />}
+        </div>
+
+        {/* GROUP B — social proof */}
+        {mounted && (
+          <div className="mt-12 flex items-center justify-center">
+            <span
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] tracking-wide
+                         bg-black/25 border border-[#FF3D8B]/20 text-[#F5E6F0]/55"
+            >
+              <span
+                className="w-1 h-1 rounded-full bg-[#FF3D8B]"
+                style={{ boxShadow: "0 0 6px rgba(255, 61, 139, 0.7)" }}
+              />
+              {girlCount.toLocaleString()} girls currently eating
+            </span>
+          </div>
         )}
-      </footer>
+
+        {/* GROUP C — footer nav */}
+        <footer
+          className="mt-16 pt-6 pb-6 w-full flex flex-col items-center gap-3 border-t"
+          style={{ borderColor: "rgba(94, 234, 212, 0.15)" }}
+        >
+          <nav className="flex items-center gap-6 text-[12px] tracking-[0.2em] uppercase font-semibold">
+            <Link href="/dishes" className="neon-cyan-text hover:opacity-80 transition-opacity">
+              all dishes
+            </Link>
+            <span className="text-[#5EEAD4]/30">✦</span>
+            <Link href="/cocktails" className="neon-cyan-text hover:opacity-80 transition-opacity">
+              all cocktails
+            </Link>
+          </nav>
+          <p
+            className="text-[11px] tracking-[0.2em] uppercase"
+            style={{ color: "rgba(94, 234, 212, 0.4)" }}
+          >
+            girl dinner™ · est. whenever
+          </p>
+        </footer>
+      </div>
+
+      {/* Bell sound toggle — anchored to the bottom-right corner */}
+      {mounted && (
+        <button
+          onClick={() => setSoundEnabled((v) => !v)}
+          className="fixed bottom-5 right-5 z-30 text-[#F5E6F0]/35 hover:text-[#F5E6F0]/70 transition-colors cursor-pointer text-xl"
+          title={soundEnabled ? "mute randomize ding" : "enable randomize ding"}
+        >
+          {soundEnabled ? "🔔" : "🔕"}
+        </button>
+      )}
     </main>
   );
 }

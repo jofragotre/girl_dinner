@@ -36,11 +36,7 @@ export default function MoodChips({ selected, onChange }: MoodChipsProps) {
           <button
             key={value}
             onClick={() => toggle(value)}
-            className={`px-3.5 py-1.5 rounded-full text-sm transition-all duration-200 cursor-pointer border ${
-              isActive
-                ? "bg-wine text-white border-wine shadow-sm"
-                : "bg-white/60 text-deep/60 border-rose/25 hover:bg-white/90 hover:border-rose/50 hover:text-deep/80"
-            }`}
+            className={`neon-pill ${isActive ? "neon-pill--active" : ""} px-4 py-1.5 rounded-full text-sm cursor-pointer tracking-wide lowercase`}
           >
             {label}
           </button>

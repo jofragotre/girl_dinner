@@ -5,10 +5,10 @@ import type { Recipe } from "@/lib/types";
 const allRecipes = recipes as Recipe[];
 
 const moodColors: Record<string, string> = {
-  soft: "bg-rose/10 text-rose border-rose/20",
-  feral: "bg-gold/10 text-gold border-gold/20",
-  fancy: "bg-mauve/10 text-mauve border-mauve/20",
-  hungover: "bg-dusty/10 text-dusty border-dusty/20",
+  soft: "bg-[#FF3D8B]/10 text-[#FF3D8B] border-[#FF3D8B]/40",
+  feral: "bg-[#5EEAD4]/10 text-[#5EEAD4] border-[#5EEAD4]/40",
+  fancy: "bg-[#FF3D8B]/10 text-[#FF3D8B] border-[#FF3D8B]/40",
+  hungover: "bg-[#5EEAD4]/10 text-[#5EEAD4] border-[#5EEAD4]/40",
 };
 
 export const metadata = {
@@ -18,40 +18,55 @@ export const metadata = {
 
 export default function DishesPage() {
   return (
-    <main className="min-h-screen flex flex-col items-center px-6 py-12 font-sans">
-      <header className="text-center mb-10">
+    <main className="interior-bg relative min-h-screen flex flex-col items-center px-6 py-16 font-sans overflow-hidden">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        <span className="corner-plant corner-plant--tl">🌿</span>
+        <span className="corner-plant corner-plant--tr">🌿</span>
+        <span className="corner-plant corner-plant--bl">🌿</span>
+        <span className="corner-plant corner-plant--br">🌿</span>
+      </div>
+
+      <header className="relative z-10 text-center mb-12">
         <Link
           href="/"
-          className="text-sm text-wine/60 hover:text-wine transition-colors tracking-wide mb-4 inline-block font-medium"
+          className="neon-cyan-text text-[11px] tracking-[0.28em] uppercase font-semibold mb-6 inline-block hover:opacity-80 transition-opacity"
         >
           ← back to dinner
         </Link>
-        <h1 className="font-serif text-5xl sm:text-6xl italic font-bold text-wine tracking-tight">
-          all dishes 🍽️
+        <h1
+          className="neon-title font-sans font-black uppercase text-5xl sm:text-6xl"
+          style={{ letterSpacing: "-0.03em" }}
+        >
+          all dishes
         </h1>
-        <p className="mt-3 text-base text-wine/65">
+        <p className="mt-4 text-[12px] neon-cyan-text tracking-[0.24em] uppercase">
           {allRecipes.length} ways to eat like a girl
         </p>
       </header>
 
-      <div className="w-full max-w-2xl grid gap-4">
+      <div className="relative z-10 w-full max-w-2xl grid gap-4">
         {allRecipes.map((recipe) => (
           <section
             key={recipe.id}
-            className="card-lift bg-[#FDF8F5]/90 backdrop-blur-sm rounded-3xl p-6 border border-[rgba(128,0,64,0.08)] shadow-sm"
+            className="neon-card rounded-2xl p-6"
           >
             <div className="flex items-start justify-between gap-3">
               <div className="flex-1 min-w-0">
-                <h2 className="font-serif italic font-semibold text-[28px] leading-tight text-wine">
+                <h2
+                  className="neon-pink-text font-sans font-bold uppercase text-[22px] leading-tight"
+                  style={{ letterSpacing: "0.04em" }}
+                >
                   {recipe.name}
                 </h2>
                 {recipe.vibe && (
-                  <p className="text-dusty italic mt-1.5 text-sm">&ldquo;{recipe.vibe}&rdquo;</p>
+                  <p className="text-[#C49AB0] italic mt-2 text-sm">&ldquo;{recipe.vibe}&rdquo;</p>
                 )}
-                <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-1">
-                  {recipe.ingredients.map((ing) => (
-                    <li key={ing} className="flex items-center gap-1.5 text-deep/75 text-base">
-                      <span className="w-[6px] h-[6px] rounded-full bg-rose inline-block flex-shrink-0" />
+                <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-1.5">
+                  {recipe.ingredients.map((ing, idx) => (
+                    <li key={ing} className="flex items-baseline gap-2 text-[#F5E6F0]/80 text-[14px]">
+                      <span className="text-[10px] font-bold tabular-nums text-[#FF3D8B] tracking-[0.1em]">
+                        {String(idx + 1).padStart(2, "0")}
+                      </span>
                       {ing}
                     </li>
                   ))}
@@ -62,7 +77,7 @@ export default function DishesPage() {
                   {recipe.moods.map((mood) => (
                     <span
                       key={mood}
-                      className={`text-xs px-2.5 py-0.5 rounded-full border font-medium tracking-wide ${moodColors[mood] ?? "bg-dusty/10 text-dusty border-dusty/20"}`}
+                      className={`text-[10px] px-2.5 py-0.5 rounded-full border font-semibold tracking-[0.15em] uppercase ${moodColors[mood] ?? "bg-[#FF3D8B]/10 text-[#FF3D8B] border-[#FF3D8B]/40"}`}
                     >
                       {mood}
                     </span>
@@ -74,16 +89,16 @@ export default function DishesPage() {
         ))}
       </div>
 
-      <footer className="mt-auto pt-12 pb-6 text-center flex flex-col items-center gap-3">
+      <footer className="relative z-10 mt-auto pt-14 pb-6 text-center flex flex-col items-center gap-3">
         <Link
           href="/"
-          className="text-wine/70 hover:text-wine transition-colors text-sm font-medium tracking-wide"
+          className="neon-cyan-text text-[11px] tracking-[0.24em] uppercase font-semibold hover:opacity-80 transition-opacity"
         >
           ← back home
         </Link>
         <Link
           href="/cocktails"
-          className="text-wine/70 hover:text-wine transition-colors text-sm font-medium tracking-wide"
+          className="neon-cyan-text text-[11px] tracking-[0.24em] uppercase font-semibold hover:opacity-80 transition-opacity"
         >
           see all cocktails →
         </Link>

@@ -1,83 +1,352 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: var(--font-dm-sans);
-  --font-serif: var(--font-playfair);
+  --font-sans: "Helvetica Neue", "Helvetica", var(--font-inter), "Arial", sans-serif;
+  --font-display: "Helvetica Neue", "Helvetica", var(--font-inter), "Arial", sans-serif;
   --font-hand: var(--font-caveat);
 
+  /* Neon palette */
+  --color-neon-pink: #FF3D8B;
+  --color-neon-magenta: #D91E6F;
+  --color-neon-cyan: #5EEAD4;
+  --color-plum: #1A0B1F;
+  --color-ink: #0D0612;
+  --color-soft-white: #F5E6F0;
+  --color-pure-white: #FFFFFF;
+
+  /* Legacy aliases (kept so the share-card canvas colors still resolve) */
   --color-blush: #FFF0F5;
   --color-cream: #FFFAF0;
   --color-petal: #FFE4EE;
-  --color-rose: #E8829F;
-  --color-mauve: #B87FC6;
-  --color-dusty: #B87A85;
-  --color-wine: #8B2252;
-  --color-deep: #3D1F2E;
-  --color-gold: #C99060;
-  --color-surface: #FFFFFF;
+  --color-rose: #FF3D8B;
+  --color-mauve: #5EEAD4;
+  --color-dusty: #C49AB0;
+  --color-wine: #F5E6F0;
+  --color-deep: #0D0612;
+  --color-gold: #5EEAD4;
+  --color-surface: #1A0B1F;
 }
 
 html {
-  color-scheme: light only;
+  color-scheme: dark only;
   min-height: 100%;
-  background: linear-gradient(150deg, #FFF0F5 0%, #F8E3F0 30%, #EEE0F5 65%, #FFF5F8 100%);
+  background: #0D0612;
 }
 
 body {
-  font-family: var(--font-dm-sans), sans-serif;
-  color: #3D1F2E;
+  font-family: var(--font-inter), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #F5E6F0;
   min-height: 100vh;
+  background: #0D0612;
+  overflow-x: hidden;
 }
 
-/* Subtle grain */
+/* Grain overlay — lower opacity, dark bgs show noise more */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  opacity: 0.025;
+  opacity: 0.04;
   pointer-events: none;
   z-index: 50;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   background-size: 256px 256px;
+  mix-blend-mode: overlay;
 }
 
-/* Button shimmer */
-@keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
+/* Two-zone page background: bright neon exterior at top fading into
+   a deep oxblood interior. */
+.two-zone-bg {
+  background-color: #08040A;
+  background-image:
+    radial-gradient(
+      ellipse 140% 680px at 50% -140px,
+      #FF3D8B 0%,
+      #D91E6F 24%,
+      rgba(217, 30, 111, 0.62) 44%,
+      rgba(217, 30, 111, 0.28) 62%,
+      rgba(217, 30, 111, 0.1) 80%,
+      rgba(8, 4, 10, 0) 96%
+    ),
+    linear-gradient(180deg, #2A0F2E 0%, #1A0A22 22%, #08040A 42%, #08040A 100%);
+  background-repeat: no-repeat;
+  background-size: 100% auto, 100% 100%;
+  background-position: top center, top center;
 }
 
-.btn-shimmer:hover {
-  background-size: 200% auto;
-  animation: shimmer 2s linear infinite;
+/* Dark-only interior background for non-home pages */
+.interior-bg {
+  background: linear-gradient(180deg, #2A0F2E 0%, #18092A 35%, #08040A 70%, #08040A 100%);
 }
 
-/* Card fade-in */
+/* Decorative plant silhouettes — legacy scattered (used on /dishes & /cocktails) */
+.plant {
+  position: absolute;
+  font-size: 220px;
+  opacity: 0.09;
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+  filter: blur(0.5px) saturate(0.6);
+  z-index: 0;
+}
+
+/* Corner plants — large silhouettes framing the page at all four corners.
+   Tinted dark pink/magenta via filter chain, subtle 8s sway. */
+.corner-plant {
+  --base-rotate: 0deg;
+  --base-scale-x: 1;
+  position: absolute;
+  font-size: 360px;
+  line-height: 1;
+  opacity: 0.4;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  /* Natural green leaf, just a bit richer against the dark bg. */
+  filter: brightness(1) saturate(1.4) contrast(1.1);
+  animation: corner-sway 8s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.corner-plant--tl {
+  top: -130px;
+  left: -130px;
+  --base-rotate: 135deg;
+}
+
+.corner-plant--tr {
+  top: -130px;
+  right: -130px;
+  --base-rotate: 135deg;
+  --base-scale-x: -1;
+  animation-delay: -2s;
+}
+
+.corner-plant--bl {
+  bottom: -130px;
+  left: -130px;
+  --base-rotate: 15deg;
+  animation-delay: -4s;
+}
+
+.corner-plant--br {
+  bottom: -130px;
+  right: -130px;
+  --base-rotate: 15deg;
+  --base-scale-x: -1;
+  animation-delay: -6s;
+}
+
+@keyframes corner-sway {
+  0%   { transform: rotate(calc(var(--base-rotate) - 2deg)) scaleX(var(--base-scale-x)); }
+  100% { transform: rotate(calc(var(--base-rotate) + 2deg)) scaleX(var(--base-scale-x)); }
+}
+
+/* Neon text glows */
+.neon-title {
+  color: #FFFFFF;
+  text-shadow:
+    0 0 14px #FF3D8B,
+    0 0 28px #FF3D8B,
+    0 0 56px rgba(255, 61, 139, 0.55),
+    0 0 90px rgba(255, 61, 139, 0.35);
+}
+
+.neon-tm {
+  color: #5EEAD4;
+  text-shadow:
+    0 0 10px #5EEAD4,
+    0 0 24px rgba(94, 234, 212, 0.55);
+}
+
+.neon-pink-text {
+  color: #FF3D8B;
+  text-shadow: 0 0 10px rgba(255, 61, 139, 0.6), 0 0 22px rgba(255, 61, 139, 0.25);
+}
+
+.neon-cyan-text {
+  color: #5EEAD4;
+  text-shadow: 0 0 8px rgba(94, 234, 212, 0.55), 0 0 18px rgba(94, 234, 212, 0.25);
+}
+
+/* Flicker — one letter stutters like a tired tube, slow + ambient */
+@keyframes neon-flicker {
+  0%, 82%, 100% { opacity: 1; }
+  83% { opacity: 0.4; }
+  84% { opacity: 1; }
+  86% { opacity: 0.6; }
+  88% { opacity: 1; }
+}
+
+.neon-flicker {
+  display: inline-block;
+  animation: neon-flicker 7s infinite;
+}
+
+/* Slow light sweep across the title every 8s */
+@keyframes light-sweep {
+  0% { background-position: -120% 0; }
+  70%, 100% { background-position: 220% 0; }
+}
+
+.light-sweep {
+  position: relative;
+  background-image: linear-gradient(
+    100deg,
+    transparent 0%,
+    transparent 40%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 60%,
+    transparent 100%
+  );
+  background-size: 220% 100%;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: light-sweep 8s ease-in-out infinite;
+}
+
+/* Ambient card fade-in */
 @keyframes fade-in {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 .animate-fade-in {
-  animation: fade-in 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Shuffle wiggle */
 @keyframes wiggle {
   0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-3px) rotate(-0.5deg); }
-  75% { transform: translateX(3px) rotate(0.5deg); }
+  25% { transform: translateX(-3px) rotate(-0.3deg); }
+  75% { transform: translateX(3px) rotate(0.3deg); }
 }
 
 .animate-wiggle {
-  animation: wiggle 0.15s ease-in-out infinite;
+  animation: wiggle 0.16s ease-in-out infinite;
 }
 
-/* Card hover lift */
-.card-lift {
-  transition: box-shadow 0.25s ease, transform 0.2s ease;
+/* Neon glass card — "mirrored interior".
+   Tinted glass panel (warm pink undertone by default) with a subtle top-light,
+   bottom-shadow inner gradient to simulate light catching a glass surface. */
+.neon-card {
+  position: relative;
+  background-color: rgba(44, 12, 34, 0.72);
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06) 0%,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(0, 0, 0, 0.07) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 61, 139, 0.42);
+  box-shadow:
+    0 0 36px rgba(255, 61, 139, 0.22),
+    0 8px 28px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: box-shadow 0.45s ease, border-color 0.45s ease, transform 0.45s ease;
 }
-.card-lift:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(180, 80, 120, 0.1);
+
+.neon-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.45) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.neon-card:hover {
+  border-color: rgba(255, 61, 139, 0.6);
+  box-shadow:
+    0 0 45px rgba(255, 61, 139, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transform: translateY(-1px);
+}
+
+.neon-card--cyan {
+  /* Cool cyan-undertone glass (keeps inner gradient inherited from .neon-card) */
+  background-color: rgba(22, 34, 52, 0.72);
+  border-color: rgba(94, 234, 212, 0.42);
+  box-shadow:
+    0 0 36px rgba(94, 234, 212, 0.2),
+    0 8px 28px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.neon-card--cyan:hover {
+  border-color: rgba(94, 234, 212, 0.6);
+  box-shadow:
+    0 0 45px rgba(94, 234, 212, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Neon pill (filter chip + footer pill) */
+.neon-pill {
+  background: rgba(13, 6, 18, 0.55);
+  border: 1px solid rgba(255, 61, 139, 0.55);
+  color: #F5E6F0;
+  transition: box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease, color 0.2s ease;
+}
+
+.neon-pill:hover {
+  box-shadow: 0 0 12px rgba(255, 61, 139, 0.6);
+  border-color: #FF3D8B;
+}
+
+.neon-pill--active {
+  background: #FF3D8B;
+  color: #FFFFFF;
+  border-color: #FF3D8B;
+  box-shadow: 0 0 18px rgba(255, 61, 139, 0.7), 0 0 36px rgba(255, 61, 139, 0.35);
+}
+
+/* Neon bar-sign button */
+.neon-button {
+  background: rgba(13, 6, 18, 0.7);
+  border: 1px solid #FF3D8B;
+  color: #FF3D8B;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: box-shadow 0.4s ease, color 0.2s ease, background 0.3s ease, transform 0.15s ease;
+  text-shadow: 0 0 6px rgba(255, 61, 139, 0.55);
+}
+
+.neon-button:hover:not(:disabled) {
+  box-shadow: 0 0 18px rgba(255, 61, 139, 0.55), 0 0 42px rgba(255, 61, 139, 0.28), inset 0 0 18px rgba(255, 61, 139, 0.12);
+  color: #FFFFFF;
+  text-shadow: 0 0 10px #FF3D8B, 0 0 22px rgba(255, 61, 139, 0.5);
+}
+
+.neon-button:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+/* Newsletter / footer input */
+.neon-input {
+  background: rgba(13, 6, 18, 0.65);
+  border: 1px solid rgba(255, 61, 139, 0.45);
+  color: #F5E6F0;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.neon-input:focus {
+  outline: none;
+  border-color: #FF3D8B;
+  box-shadow: 0 0 14px rgba(255, 61, 139, 0.45);
+}
+
+.neon-input::placeholder {
+  color: rgba(245, 230, 240, 0.35);
 }

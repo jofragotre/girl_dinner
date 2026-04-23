@@ -4,7 +4,7 @@ interface RecipeCardProps {
   item: Recipe | Cocktail;
   label: string;
   emoji: string;
-  dotColor: string;
+  accent: "pink" | "cyan";
   isShuffling: boolean;
   fridayMode?: boolean;
 }
@@ -13,42 +13,62 @@ export default function RecipeCard({
   item,
   label,
   emoji,
-  dotColor,
+  accent,
   isShuffling,
   fridayMode,
 }: RecipeCardProps) {
+  const isCyan = accent === "cyan";
+  const accentTextClass = isCyan ? "neon-cyan-text" : "neon-pink-text";
+  const cardAccentClass = isCyan ? "neon-card--cyan" : "";
+  const numberColor = isCyan ? "text-[#5EEAD4]" : "text-[#FF3D8B]";
+  const fridayPillClass = isCyan
+    ? "border-[#5EEAD4]/50 text-[#5EEAD4]"
+    : "border-[#FF3D8B]/50 text-[#FF3D8B]";
+
   return (
     <section
-      className={`card-lift bg-[#FDF8F5]/90 backdrop-blur-sm rounded-3xl p-8 border border-[rgba(128,0,64,0.08)] shadow-sm transition-all duration-200 ${
+      className={`neon-card ${cardAccentClass} rounded-2xl p-8 ${
         isShuffling ? "animate-wiggle scale-[0.98] blur-[1px]" : ""
       }`}
     >
-      <div className="flex items-center gap-2 mb-2">
+      <div className="flex items-center gap-2 mb-4">
         <span className="text-lg">{emoji}</span>
-        <span className="text-xs uppercase tracking-[0.15em] text-mauve font-semibold">
+        <span
+          className={`text-[11px] uppercase tracking-[0.28em] font-semibold ${accentTextClass}`}
+        >
           {label}
         </span>
         {fridayMode && (
-          <span className="ml-auto text-xs px-2.5 py-0.5 rounded-full bg-gold/15 text-gold font-semibold tracking-wide border border-gold/25">
-            friday pour 🥂
+          <span
+            className={`ml-auto text-[10px] px-2.5 py-0.5 rounded-full bg-black/30 font-semibold tracking-[0.18em] uppercase border ${fridayPillClass}`}
+          >
+            friday pour
           </span>
         )}
       </div>
-      <h2 className="font-serif italic font-semibold text-[32px] leading-tight text-wine mt-2">
+      <h2
+        className={`font-sans font-bold uppercase text-[26px] leading-[1.1] ${accentTextClass} mt-1`}
+        style={{ letterSpacing: "0.04em" }}
+      >
         {item.name}
       </h2>
       {item.vibe && (
-        <p className="text-dusty italic mt-2 text-sm">
+        <p className="text-[#C49AB0] italic mt-3 text-sm leading-relaxed">
           &ldquo;{item.vibe}&rdquo;
         </p>
       )}
-      <ul className="mt-5 space-y-1.5">
-        {item.ingredients.map((ingredient) => (
-          <li key={ingredient} className="flex items-center gap-2 text-deep/80 text-base font-normal">
+      <ul className="mt-6 space-y-2.5">
+        {item.ingredients.map((ingredient, idx) => (
+          <li
+            key={ingredient}
+            className="flex items-baseline gap-3 text-[#F5E6F0]/85 text-[15px] font-normal"
+          >
             <span
-              className={`w-[6px] h-[6px] rounded-full inline-block flex-shrink-0 ${dotColor}`}
-            />
-            {fridayMode ? `${ingredient} ×2` : ingredient}
+              className={`font-sans font-bold text-[11px] tracking-[0.1em] tabular-nums ${numberColor} flex-shrink-0 w-6`}
+            >
+              {String(idx + 1).padStart(2, "0")}
+            </span>
+            <span>{fridayMode ? `${ingredient} ×2` : ingredient}</span>
           </li>
         ))}
       </ul>
