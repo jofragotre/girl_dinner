@@ -6,6 +6,7 @@ import type { Recipe, Cocktail } from "@/lib/types";
 interface ShareCardProps {
   dinner: Recipe;
   drink: Cocktail;
+  compact?: boolean;
 }
 
 const W = 540;
@@ -238,7 +239,7 @@ async function buildCard(dinner: Recipe, drink: Cocktail): Promise<string> {
   return canvas.toDataURL("image/png");
 }
 
-export default function ShareCard({ dinner, drink }: ShareCardProps) {
+export default function ShareCard({ dinner, drink, compact }: ShareCardProps) {
   const [open, setOpen] = useState(false);
   const [dataUrl, setDataUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -262,16 +263,26 @@ export default function ShareCard({ dinner, drink }: ShareCardProps) {
 
   return (
     <>
-      <button
-        onClick={generate}
-        className="inline-flex items-center gap-2 px-7 py-3 rounded-full text-[12px] tracking-[0.2em] uppercase font-bold
-                   bg-transparent border border-[#FF3D8B]/55 text-[#FF3D8B]
-                   hover:border-[#FF3D8B] hover:text-white hover:shadow-[0_0_14px_rgba(255,61,139,0.4)]
-                   transition-all duration-300 cursor-pointer"
-        style={{ textShadow: "0 0 6px rgba(255, 61, 139, 0.45)" }}
-      >
-        share story ✦
-      </button>
+      {compact ? (
+        <button
+          onClick={generate}
+          className="text-[#F5E6F0]/35 hover:text-[#F5E6F0]/70 transition-colors cursor-pointer text-xl"
+          title="share your girl dinner"
+        >
+          📤
+        </button>
+      ) : (
+        <button
+          onClick={generate}
+          className="inline-flex items-center gap-2 px-7 py-3 rounded-full text-[12px] tracking-[0.2em] uppercase font-bold
+                     bg-transparent border border-[#FF3D8B]/55 text-[#FF3D8B]
+                     hover:border-[#FF3D8B] hover:text-white hover:shadow-[0_0_14px_rgba(255,61,139,0.4)]
+                     transition-all duration-300 cursor-pointer"
+          style={{ textShadow: "0 0 6px rgba(255, 61, 139, 0.45)" }}
+        >
+          share story ✦
+        </button>
+      )}
 
       {open && (
         <div

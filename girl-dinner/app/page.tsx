@@ -269,36 +269,20 @@ export default function Home() {
           >
             {isShuffling ? "shuffling…" : "randomize ✦"}
           </button>
-          {mounted && !noMatch && <ShareCard dinner={dinner} drink={drink} />}
         </div>
 
-        {/* GROUP B — social proof */}
-        {mounted && (
-          <div className="mt-12 flex items-center justify-center">
-            <span
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] tracking-wide
-                         bg-black/25 border border-[#FF3D8B]/20 text-[#F5E6F0]/55"
-            >
-              <span
-                className="w-1 h-1 rounded-full bg-[#FF3D8B]"
-                style={{ boxShadow: "0 0 6px rgba(255, 61, 139, 0.7)" }}
-              />
-              {girlCount.toLocaleString()} girls currently eating
-            </span>
-          </div>
-        )}
 
         {/* GROUP C — footer nav */}
         <footer
           className="mt-16 pt-6 pb-6 w-full flex flex-col items-center gap-3 border-t"
           style={{ borderColor: "rgba(94, 234, 212, 0.15)" }}
         >
-          <nav className="flex items-center gap-6 text-[12px] tracking-[0.2em] uppercase font-semibold">
-            <Link href="/dishes" className="neon-cyan-text hover:opacity-80 transition-opacity">
-              all dishes
+          <nav className="grid grid-cols-[1fr_auto_1fr] items-center gap-4 text-[12px] tracking-[0.2em] uppercase font-semibold">
+            <Link href="/dishes" className="neon-cyan-text hover:opacity-80 transition-opacity text-right">
+              all recipes
             </Link>
             <span className="text-[#5EEAD4]/30">✦</span>
-            <Link href="/cocktails" className="neon-cyan-text hover:opacity-80 transition-opacity">
+            <Link href="/cocktails" className="neon-cyan-text hover:opacity-80 transition-opacity text-left">
               all cocktails
             </Link>
           </nav>
@@ -311,15 +295,34 @@ export default function Home() {
         </footer>
       </div>
 
-      {/* Bell sound toggle — anchored to the bottom-right corner */}
+      {/* Social proof — anchored to the bottom-left corner */}
       {mounted && (
-        <button
-          onClick={() => setSoundEnabled((v) => !v)}
-          className="fixed bottom-5 right-5 z-30 text-[#F5E6F0]/35 hover:text-[#F5E6F0]/70 transition-colors cursor-pointer text-xl"
-          title={soundEnabled ? "mute randomize ding" : "enable randomize ding"}
-        >
-          {soundEnabled ? "🔔" : "🔕"}
-        </button>
+        <div className="fixed bottom-5 left-5 z-30">
+          <span
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] tracking-wide
+                       bg-black/25 border border-[#FF3D8B]/20 text-[#F5E6F0]/55"
+          >
+            <span
+              className="w-1 h-1 rounded-full bg-[#FF3D8B]"
+              style={{ boxShadow: "0 0 6px rgba(255, 61, 139, 0.7)" }}
+            />
+            {girlCount.toLocaleString()} girls currently eating
+          </span>
+        </div>
+      )}
+
+      {/* Bell + Share — anchored to the bottom-right corner */}
+      {mounted && (
+        <div className="fixed bottom-5 right-5 z-30 flex items-center gap-3">
+          {!noMatch && <ShareCard dinner={dinner} drink={drink} compact />}
+          <button
+            onClick={() => setSoundEnabled((v) => !v)}
+            className="text-[#F5E6F0]/35 hover:text-[#F5E6F0]/70 transition-colors cursor-pointer text-xl"
+            title={soundEnabled ? "mute randomize ding" : "enable randomize ding"}
+          >
+            {soundEnabled ? "🔔" : "🔕"}
+          </button>
+        </div>
       )}
     </main>
   );
