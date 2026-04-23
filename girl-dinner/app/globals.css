@@ -222,80 +222,134 @@ body::before {
   animation: wiggle 0.16s ease-in-out infinite;
 }
 
-/* Neon glass card — "mirrored interior".
-   Tinted glass panel (warm pink undertone by default) with a subtle top-light,
-   bottom-shadow inner gradient to simulate light catching a glass surface. */
+/* Neon glass card — polished mirror glass.
+   Beveled borders + top-edge highlight simulate light catching glass edges.
+   Inner gradient = top-lit, bottom-shadowed depth. Diagonal ::after = specular catch.
+   Hover triggers a one-shot shimmer sweep via ::after animation. */
 .neon-card {
   position: relative;
+  overflow: hidden;
   background-color: rgba(44, 12, 34, 0.72);
   background-image: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0.06) 0%,
-    rgba(255, 255, 255, 0) 50%,
-    rgba(0, 0, 0, 0.07) 100%
+    rgba(255, 255, 255, 0) 40%,
+    rgba(0, 0, 0, 0.15) 100%
   );
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 61, 139, 0.42);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
   box-shadow:
     0 0 36px rgba(255, 61, 139, 0.22),
     0 8px 28px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  transition: box-shadow 0.45s ease, border-color 0.45s ease, transform 0.45s ease;
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 0 40px rgba(255, 61, 139, 0.08);
+  transition: box-shadow 0.45s ease, transform 0.45s ease;
 }
 
+/* Top-edge light highlight — 80% wide, simulates light catching the glass rim */
 .neon-card::before {
   content: "";
   position: absolute;
   top: 0;
-  left: 8%;
-  right: 8%;
+  left: 10%;
+  right: 10%;
   height: 1px;
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(255, 255, 255, 0.45) 50%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Diagonal specular streak — permanent catch at rest, sweeps on hover */
+.neon-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.neon-card:hover {
+  box-shadow:
+    0 0 45px rgba(255, 61, 139, 0.28),
+    0 8px 28px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 0 40px rgba(255, 61, 139, 0.12);
+  transform: translateY(-1px);
+}
+
+.neon-card:hover::after {
+  animation: card-shimmer 1.2s ease-out forwards;
+}
+
+@keyframes card-shimmer {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
+}
+
+.neon-card--cyan {
+  /* Cool cyan-undertone glass (inherits beveled border + inner gradient from .neon-card) */
+  background-color: rgba(22, 34, 52, 0.72);
+  box-shadow:
+    0 0 36px rgba(94, 234, 212, 0.2),
+    0 8px 28px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 0 40px rgba(94, 234, 212, 0.08);
+}
+
+.neon-card--cyan:hover {
+  box-shadow:
+    0 0 45px rgba(94, 234, 212, 0.26),
+    0 8px 28px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 0 40px rgba(94, 234, 212, 0.12);
+}
+
+/* Neon pill (filter chip + footer pill) — beveled glass touch */
+.neon-pill {
+  position: relative;
+  overflow: hidden;
+  background: rgba(13, 6, 18, 0.55);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+  border-right: 1px solid rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  color: #F5E6F0;
+  transition: box-shadow 0.35s ease, background 0.35s ease, color 0.2s ease;
+}
+
+.neon-pill::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 15%;
+  right: 15%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
     transparent 100%
   );
   pointer-events: none;
 }
 
-.neon-card:hover {
-  border-color: rgba(255, 61, 139, 0.6);
-  box-shadow:
-    0 0 45px rgba(255, 61, 139, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  transform: translateY(-1px);
-}
-
-.neon-card--cyan {
-  /* Cool cyan-undertone glass (keeps inner gradient inherited from .neon-card) */
-  background-color: rgba(22, 34, 52, 0.72);
-  border-color: rgba(94, 234, 212, 0.42);
-  box-shadow:
-    0 0 36px rgba(94, 234, 212, 0.2),
-    0 8px 28px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-}
-
-.neon-card--cyan:hover {
-  border-color: rgba(94, 234, 212, 0.6);
-  box-shadow:
-    0 0 45px rgba(94, 234, 212, 0.26),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-}
-
-/* Neon pill (filter chip + footer pill) */
-.neon-pill {
-  background: rgba(13, 6, 18, 0.55);
-  border: 1px solid rgba(255, 61, 139, 0.55);
-  color: #F5E6F0;
-  transition: box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease, color 0.2s ease;
-}
-
 .neon-pill:hover {
   box-shadow: 0 0 12px rgba(255, 61, 139, 0.6);
-  border-color: #FF3D8B;
 }
 
 .neon-pill--active {
