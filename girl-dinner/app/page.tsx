@@ -11,6 +11,7 @@ import type { Recipe, Cocktail, Mood } from "@/lib/types";
 import RecipeCard from "./components/RecipeCard";
 import MoodChips from "./components/MoodChips";
 import ShareCard from "./components/ShareCard";
+import JunglePlants from "./components/JunglePlants";
 
 const allRecipes = recipes as Recipe[];
 const allCocktails = cocktails as Cocktail[];
@@ -178,13 +179,8 @@ export default function Home() {
   return (
     <main className="two-zone-bg relative min-h-screen flex flex-col items-center px-6 pt-20 pb-12 font-sans overflow-hidden">
 
-      {/* Corner plants — framing all four corners, tinted magenta, slow sway */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-        <span className="corner-plant corner-plant--tl">🌿</span>
-        <span className="corner-plant corner-plant--tr">🌿</span>
-        <span className="corner-plant corner-plant--bl">🌿</span>
-        <span className="corner-plant corner-plant--br">🌿</span>
-      </div>
+      {/* Jungle overgrowth — 3-layer depth composition */}
+      <JunglePlants />
 
       {/* Header / storefront sign */}
       <header className="relative text-center mb-10 z-10">

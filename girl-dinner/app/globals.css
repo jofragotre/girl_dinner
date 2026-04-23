@@ -91,56 +91,50 @@ body::before {
   z-index: 0;
 }
 
-/* Corner plants — large silhouettes framing the page at all four corners.
-   Tinted dark pink/magenta via filter chain, subtle 8s sway. */
-.corner-plant {
+/* Jungle plants — 3-layer depth composition (see JunglePlants.tsx).
+   Shared base: positioning + sway. Per-layer modifiers set size-independent
+   look (opacity, blur, tint, glow, z-index). */
+.jungle-plant {
   --base-rotate: 0deg;
   --base-scale-x: 1;
+  --sway-amp: 2deg;
   position: absolute;
-  font-size: 360px;
   line-height: 1;
-  opacity: 0.4;
   pointer-events: none;
   user-select: none;
-  z-index: 0;
-  /* Natural green leaf, just a bit richer against the dark bg. */
-  filter: brightness(1) saturate(1.4) contrast(1.1);
-  animation: corner-sway 8s ease-in-out infinite alternate;
+  animation: jungle-sway 10s ease-in-out infinite alternate;
   will-change: transform;
 }
 
-.corner-plant--tl {
-  top: -130px;
-  left: -130px;
-  --base-rotate: 135deg;
+/* LAYER 1 — far background: big, soft, magenta/plum-tinted, heavily blurred */
+.jungle-layer-1 {
+  z-index: 1;
+  opacity: 0.09;
+  filter: blur(6px) hue-rotate(180deg) saturate(1.2) brightness(0.5);
 }
 
-.corner-plant--tr {
-  top: -130px;
-  right: -130px;
-  --base-rotate: 135deg;
-  --base-scale-x: -1;
-  animation-delay: -2s;
+/* LAYER 2 — mid: muted green with slight pink tint */
+.jungle-layer-2 {
+  z-index: 2;
+  opacity: 0.18;
+  filter: blur(2px) hue-rotate(-10deg) saturate(0.6) brightness(0.85);
 }
 
-.corner-plant--bl {
-  bottom: -130px;
-  left: -130px;
-  --base-rotate: 15deg;
-  animation-delay: -4s;
+/* LAYER 3 — foreground: sharp, natural green (dim-lit, not neon-day),
+   subtle dual-color glow to tie into the neon palette */
+.jungle-layer-3 {
+  z-index: 3;
+  opacity: 0.32;
+  filter:
+    saturate(0.85)
+    brightness(0.8)
+    drop-shadow(0 0 14px rgba(255, 61, 139, 0.12))
+    drop-shadow(0 0 22px rgba(94, 234, 212, 0.08));
 }
 
-.corner-plant--br {
-  bottom: -130px;
-  right: -130px;
-  --base-rotate: 15deg;
-  --base-scale-x: -1;
-  animation-delay: -6s;
-}
-
-@keyframes corner-sway {
-  0%   { transform: rotate(calc(var(--base-rotate) - 2deg)) scaleX(var(--base-scale-x)); }
-  100% { transform: rotate(calc(var(--base-rotate) + 2deg)) scaleX(var(--base-scale-x)); }
+@keyframes jungle-sway {
+  0%   { transform: rotate(calc(var(--base-rotate) - var(--sway-amp))) scaleX(var(--base-scale-x)); }
+  100% { transform: rotate(calc(var(--base-rotate) + var(--sway-amp))) scaleX(var(--base-scale-x)); }
 }
 
 /* Neon text glows */

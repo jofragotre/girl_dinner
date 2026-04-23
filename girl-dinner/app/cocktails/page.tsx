@@ -1,6 +1,7 @@
 import Link from "next/link";
 import cocktails from "@/data/cocktails.json";
 import type { Cocktail } from "@/lib/types";
+import JunglePlants from "../components/JunglePlants";
 
 const allCocktails = cocktails as Cocktail[];
 
@@ -19,12 +20,7 @@ export const metadata = {
 export default function CocktailsPage() {
   return (
     <main className="interior-bg relative min-h-screen flex flex-col items-center px-6 py-16 font-sans overflow-hidden">
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-        <span className="corner-plant corner-plant--tl">🌿</span>
-        <span className="corner-plant corner-plant--tr">🌿</span>
-        <span className="corner-plant corner-plant--bl">🌿</span>
-        <span className="corner-plant corner-plant--br">🌿</span>
-      </div>
+      <JunglePlants />
 
       <header className="relative z-10 text-center mb-12">
         <Link
