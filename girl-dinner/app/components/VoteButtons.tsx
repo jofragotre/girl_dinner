@@ -16,8 +16,8 @@ export default function VoteButtons({
   initialUserVote,
   accent = 'pink',
 }: VoteButtonsProps) {
-  const [score, setScore] = useState(initialScore)
-  const [userVote, setUserVote] = useState(initialUserVote)
+  const [score, setScore] = useState(Number(initialScore))
+  const [userVote, setUserVote] = useState(Number(initialUserVote))
   const [isPending, startTransition] = useTransition()
 
   const accentColor = accent === 'cyan' ? '#5EEAD4' : '#FF3D8B'
