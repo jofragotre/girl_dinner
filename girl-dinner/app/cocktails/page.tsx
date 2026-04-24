@@ -2,7 +2,6 @@ import Link from "next/link";
 import { auth } from "@clerk/nextjs/server";
 import { listItems, getUserVotes } from "@/db/queries";
 import type { Cocktail } from "@/lib/types";
-import JunglePlants from "../components/JunglePlants";
 import VoteButtons from "../components/VoteButtons";
 
 const moodColors: Record<string, string> = {
@@ -50,8 +49,6 @@ export default async function CocktailsPage({
 
   return (
     <main className="interior-bg relative min-h-screen flex flex-col items-center px-6 py-16 font-sans overflow-hidden">
-      <JunglePlants />
-
       <header className="relative z-10 text-center mb-6">
         <Link
           href="/"

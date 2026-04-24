@@ -10,7 +10,7 @@
   --color-neon-magenta: #D91E6F;
   --color-neon-cyan: #5EEAD4;
   --color-plum: #1A0B1F;
-  --color-ink: #0D0612;
+  --color-ink: #000000;
   --color-soft-white: #F5E6F0;
   --color-pure-white: #FFFFFF;
 
@@ -30,14 +30,14 @@
 html {
   color-scheme: dark only;
   min-height: 100%;
-  background: #0D0612;
+  background: #000000;
 }
 
 body {
   font-family: var(--font-inter), "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #F5E6F0;
   min-height: 100vh;
-  background: #0D0612;
+  background: #000000;
   overflow-x: hidden;
 }
 
@@ -57,7 +57,7 @@ body::before {
 /* Two-zone page background: bright neon exterior at top fading into
    a deep oxblood interior. */
 .two-zone-bg {
-  background-color: #08040A;
+  background-color: #000000;
   background-image:
     radial-gradient(
       ellipse 140% 680px at 50% -140px,
@@ -66,9 +66,9 @@ body::before {
       rgba(217, 30, 111, 0.62) 44%,
       rgba(217, 30, 111, 0.28) 62%,
       rgba(217, 30, 111, 0.1) 80%,
-      rgba(8, 4, 10, 0) 96%
+      rgba(0, 0, 0, 0) 96%
     ),
-    linear-gradient(180deg, #2A0F2E 0%, #1A0A22 22%, #08040A 42%, #08040A 100%);
+    linear-gradient(180deg, #1A0A22 0%, #0D0612 22%, #000000 42%, #000000 100%);
   background-repeat: no-repeat;
   background-size: 100% auto, 100% 100%;
   background-position: top center, top center;
@@ -76,66 +76,9 @@ body::before {
 
 /* Dark-only interior background for non-home pages */
 .interior-bg {
-  background: linear-gradient(180deg, #2A0F2E 0%, #18092A 35%, #08040A 70%, #08040A 100%);
+  background: linear-gradient(180deg, #1A0A22 0%, #0D0612 35%, #000000 70%, #000000 100%);
 }
 
-/* Decorative plant silhouettes — legacy scattered (used on /dishes & /cocktails) */
-.plant {
-  position: absolute;
-  font-size: 220px;
-  opacity: 0.09;
-  pointer-events: none;
-  user-select: none;
-  line-height: 1;
-  filter: blur(0.5px) saturate(0.6);
-  z-index: 0;
-}
-
-/* Jungle plants — 3-layer depth composition (see JunglePlants.tsx).
-   Shared base: positioning + sway. Per-layer modifiers set size-independent
-   look (opacity, blur, tint, glow, z-index). */
-.jungle-plant {
-  --base-rotate: 0deg;
-  --base-scale-x: 1;
-  --sway-amp: 2deg;
-  position: absolute;
-  line-height: 1;
-  pointer-events: none;
-  user-select: none;
-  animation: jungle-sway 10s ease-in-out infinite alternate;
-  will-change: transform;
-}
-
-/* LAYER 1 — far background: big, soft, magenta/plum-tinted, heavily blurred */
-.jungle-layer-1 {
-  z-index: 1;
-  opacity: 0.09;
-  filter: blur(6px) hue-rotate(180deg) saturate(1.2) brightness(0.5);
-}
-
-/* LAYER 2 — mid: muted green with slight pink tint */
-.jungle-layer-2 {
-  z-index: 2;
-  opacity: 0.18;
-  filter: blur(2px) hue-rotate(-10deg) saturate(0.6) brightness(0.85);
-}
-
-/* LAYER 3 — foreground: sharp, natural green (dim-lit, not neon-day),
-   subtle dual-color glow to tie into the neon palette */
-.jungle-layer-3 {
-  z-index: 3;
-  opacity: 0.32;
-  filter:
-    saturate(0.85)
-    brightness(0.8)
-    drop-shadow(0 0 14px rgba(255, 61, 139, 0.12))
-    drop-shadow(0 0 22px rgba(94, 234, 212, 0.08));
-}
-
-@keyframes jungle-sway {
-  0%   { transform: rotate(calc(var(--base-rotate) - var(--sway-amp))) scaleX(var(--base-scale-x)); }
-  100% { transform: rotate(calc(var(--base-rotate) + var(--sway-amp))) scaleX(var(--base-scale-x)); }
-}
 
 /* Neon text glows */
 .neon-title {

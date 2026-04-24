@@ -8,7 +8,6 @@ import type { Recipe, Cocktail, Mood } from "@/lib/types";
 import RecipeCard from "./components/RecipeCard";
 import MoodChips from "./components/MoodChips";
 import ShareCard from "./components/ShareCard";
-import JunglePlants from "./components/JunglePlants";
 
 const SHUFFLE_DURATION = 600;
 const SHUFFLE_INTERVAL = 80;
@@ -178,9 +177,6 @@ export default function HomeClient({ allRecipes, allCocktails, subtitles }: Home
 
   return (
     <main className="two-zone-bg relative min-h-screen flex flex-col items-center px-6 pt-20 pb-20 sm:pb-12 font-sans overflow-hidden">
-
-      {/* Jungle overgrowth — 3-layer depth composition */}
-      <JunglePlants />
 
       {/* Header / storefront sign */}
       <header className="relative text-center mb-10 z-10">
