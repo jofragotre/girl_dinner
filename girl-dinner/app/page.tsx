@@ -190,10 +190,10 @@ export default function Home() {
           </p>
         )}
         <h1
-          className="neon-title font-sans font-black uppercase text-[72px] sm:text-[96px] leading-[0.95]"
+          className="neon-title font-sans font-black uppercase text-[52px] sm:text-[96px] leading-[0.95] whitespace-nowrap"
           style={{ letterSpacing: "-0.03em" }}
         >
-          <span className="light-sweep">
+          <span className="light-sweep whitespace-nowrap">
             girl di<span className="neon-flicker">n</span>ner
           </span>
           <span className="neon-tm text-[40px] sm:text-[52px] align-top ml-1">™</span>
