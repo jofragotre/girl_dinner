@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { listItems } from "@/db/queries";
-import { deleteItemAction } from "@/app/actions/admin";
+import DeleteButton from "./DeleteButton";
 
 const moodColors: Record<string, string> = {
   soft: "bg-[#FF3D8B]/10 text-[#FF3D8B] border-[#FF3D8B]/40",
@@ -98,19 +98,7 @@ export default async function AdminPage({
                 >
                   edit
                 </Link>
-                <form action={deleteItemAction}>
-                  <input type="hidden" name="id" value={item.id} />
-                  <input type="hidden" name="kind" value={kind} />
-                  <button
-                    type="submit"
-                    className="text-[10px] uppercase tracking-[0.18em] font-semibold text-[#F5E6F0]/30 hover:text-[#FF3D8B] transition-colors px-3 py-1.5 rounded-full border border-[#F5E6F0]/10 hover:border-[#FF3D8B]/30 cursor-pointer"
-                    onClick={(e) => {
-                      if (!confirm(`Delete "${item.name}"?`)) e.preventDefault()
-                    }}
-                  >
-                    delete
-                  </button>
-                </form>
+                <DeleteButton id={item.id} kind={kind} name={item.name} />
               </div>
             </div>
           ))}
