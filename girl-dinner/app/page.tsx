@@ -286,6 +286,32 @@ export default function Home() {
               all cocktails
             </Link>
           </nav>
+
+          {mounted && (
+            <div className="w-full flex items-center justify-between pt-2">
+              <span
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] tracking-wide
+                           bg-black/25 border border-[#FF3D8B]/20 text-[#F5E6F0]/55"
+              >
+                <span
+                  className="w-1 h-1 rounded-full bg-[#FF3D8B]"
+                  style={{ boxShadow: "0 0 6px rgba(255, 61, 139, 0.7)" }}
+                />
+                {girlCount.toLocaleString()} girls currently eating
+              </span>
+              <div className="flex items-center gap-3">
+                {!noMatch && <ShareCard dinner={dinner} drink={drink} compact />}
+                <button
+                  onClick={() => setSoundEnabled((v) => !v)}
+                  className="text-[#F5E6F0]/35 hover:text-[#F5E6F0]/70 transition-colors cursor-pointer text-xl"
+                  title={soundEnabled ? "mute randomize ding" : "enable randomize ding"}
+                >
+                  {soundEnabled ? "🔔" : "🔕"}
+                </button>
+              </div>
+            </div>
+          )}
+
           <p
             className="text-[11px] tracking-[0.2em] uppercase"
             style={{ color: "rgba(94, 234, 212, 0.4)" }}
@@ -294,36 +320,6 @@ export default function Home() {
           </p>
         </footer>
       </div>
-
-      {/* Social proof — anchored to the bottom-left corner */}
-      {mounted && (
-        <div className="fixed bottom-5 left-5 z-30">
-          <span
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] tracking-wide
-                       bg-black/25 border border-[#FF3D8B]/20 text-[#F5E6F0]/55"
-          >
-            <span
-              className="w-1 h-1 rounded-full bg-[#FF3D8B]"
-              style={{ boxShadow: "0 0 6px rgba(255, 61, 139, 0.7)" }}
-            />
-            {girlCount.toLocaleString()} girls currently eating
-          </span>
-        </div>
-      )}
-
-      {/* Bell + Share — anchored to the bottom-right corner */}
-      {mounted && (
-        <div className="fixed bottom-5 right-5 z-30 flex items-center gap-3">
-          {!noMatch && <ShareCard dinner={dinner} drink={drink} compact />}
-          <button
-            onClick={() => setSoundEnabled((v) => !v)}
-            className="text-[#F5E6F0]/35 hover:text-[#F5E6F0]/70 transition-colors cursor-pointer text-xl"
-            title={soundEnabled ? "mute randomize ding" : "enable randomize ding"}
-          >
-            {soundEnabled ? "🔔" : "🔕"}
-          </button>
-        </div>
-      )}
     </main>
   );
 }
