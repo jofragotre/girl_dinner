@@ -54,7 +54,8 @@ body::before {
   mix-blend-mode: overlay;
 }
 
-/* Two-zone page background: neon glow at top over pure black */
+/* Two-zone page background: bright neon exterior at top fading into
+   a deep oxblood interior. */
 .two-zone-bg {
   background-color: #000000;
   background-image:
@@ -66,15 +67,16 @@ body::before {
       rgba(217, 30, 111, 0.28) 62%,
       rgba(217, 30, 111, 0.1) 80%,
       rgba(0, 0, 0, 0) 96%
-    );
+    ),
+    linear-gradient(180deg, #1A0A22 0%, #0D0612 22%, #000000 42%, #000000 100%);
   background-repeat: no-repeat;
-  background-size: 100% auto;
-  background-position: top center;
+  background-size: 100% auto, 100% 100%;
+  background-position: top center, top center;
 }
 
-/* Interior pages — pure black */
+/* Dark-only interior background for non-home pages */
 .interior-bg {
-  background: #000000;
+  background: linear-gradient(180deg, #1A0A22 0%, #0D0612 35%, #000000 70%, #000000 100%);
 }
 
 
