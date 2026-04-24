@@ -1,44 +1,21 @@
 # girl dinner™
 
-## How to update recipes & cocktails
+## Adding & editing recipes
 
-All content lives in two JSON files in the `data/` folder:
+All content is managed through the **admin panel** at `/admin` on the live site.
 
-- `data/recipes.json` — food dishes
-- `data/cocktails.json` — cocktails
+Sign in with your account, then use the admin dashboard to add, edit, or delete recipes and cocktails. Changes go live immediately — no GitHub editing or redeployment needed.
 
-### Editing on GitHub
+### Recipe fields
 
-1. Go to the repo on GitHub: [github.com/jofragotre/girl_dinner](https://github.com/jofragotre/girl_dinner)
-2. Navigate into `girl-dinner/data/`
-3. Click the file you want to edit (`recipes.json` or `cocktails.json`)
-4. Click the pencil icon (Edit this file) in the top right
-5. Make your changes, then click **Commit changes** → commit directly to `main`
-6. Vercel will auto-deploy within ~30 seconds
+| Field | Required | Notes |
+|-------|----------|-------|
+| `name` | Yes | Display name |
+| `vibe` | Yes | One short witty line |
+| `ingredients` | Yes | One per line in the textarea |
+| `moods` | No | Select any of: soft, feral, fancy, hungover |
 
-### Recipe format
-
-```json
-{
-  "id": "unique-number-as-string",
-  "name": "Name of the dish",
-  "ingredients": ["ingredient one", "ingredient two"],
-  "vibe": "a short witty description",
-  "moods": ["soft", "feral", "fancy", "hungover"]
-}
-```
-
-### Cocktail format
-
-```json
-{
-  "id": "unique-number-as-string",
-  "name": "Name of the cocktail",
-  "ingredients": ["ingredient one", "ingredient two"],
-  "vibe": "a short witty description",
-  "moods": ["soft", "feral", "fancy", "hungover"]
-}
-```
+Cocktails are the same, except `vibe` is optional.
 
 ### Valid moods
 
@@ -49,10 +26,41 @@ All content lives in two JSON files in the `data/` folder:
 | `fancy` | bougie, treating yourself |
 | `hungover` | survival mode |
 
-`moods` is optional — leave it out and the item appears for all moods.
+`moods` is optional — leave unchecked and the item appears for all moods.
 
-### Rules
+---
 
-- `id` must be unique within its file (just increment from the last one)
-- `ingredients` is an array of strings — keep them lowercase and casual
-- `vibe` is one short line, the more unhinged the better
+## Developer setup
+
+### Prerequisites
+
+1. Vercel project linked — run `vercel link`
+2. Neon Postgres integration added via Vercel Marketplace
+3. Clerk integration added via Vercel Marketplace
+4. Pull env vars: `vercel env pull .env.local`
+
+### First-time DB setup
+
+```bash
+# Apply the schema
+npm run db:push
+
+# Seed from existing JSON (run once)
+npm run db:seed
+```
+
+### Local dev
+
+```bash
+npm run dev
+```
+
+### Make yourself admin
+
+After creating your account on the site, go to the [Clerk dashboard](https://dashboard.clerk.com), find your user, and set `publicMetadata` to:
+
+```json
+{ "role": "admin" }
+```
+
+The `/admin` link will appear in the top-right corner after your next sign-in.

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Caveat } from "next/font/google";
+import { ClerkProvider } from "@clerk/nextjs";
+import HeaderAuth from "./components/HeaderAuth";
 import "./globals.css";
 
 const inter = Inter({
@@ -13,7 +15,6 @@ const caveat = Caveat({
   subsets: ["latin"],
 });
 
-
 export const metadata: Metadata = {
   title: "girl dinner™",
   description: "chaos cooking for the soul",
@@ -25,11 +26,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${caveat.variable} min-h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
-    </html>
+    <ClerkProvider>
+      <html
+        lang="en"
+        className={`${inter.variable} ${caveat.variable} min-h-full antialiased`}
+      >
+        <body className="min-h-full flex flex-col">
+          <HeaderAuth />
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

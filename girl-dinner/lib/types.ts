@@ -6,6 +6,7 @@ export interface Recipe {
   ingredients: string[];
   vibe: string;
   moods?: Mood[];
+  score?: number;
 }
 
 export interface Cocktail {
@@ -14,4 +15,5 @@ export interface Cocktail {
   ingredients: string[];
   vibe?: string;
   moods?: Mood[];
+  score?: number;
 }
