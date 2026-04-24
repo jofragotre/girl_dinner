@@ -177,7 +177,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="two-zone-bg relative min-h-screen flex flex-col items-center px-6 pt-20 pb-12 font-sans overflow-hidden">
+    <main className="two-zone-bg relative min-h-screen flex flex-col items-center px-6 pt-20 pb-20 sm:pb-12 font-sans overflow-hidden">
 
       {/* Jungle overgrowth — 3-layer depth composition */}
       <JunglePlants />
