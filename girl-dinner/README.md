@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# girl dinner™
 
-## Getting Started
+## How to update recipes & cocktails
 
-First, run the development server:
+All content lives in two JSON files in the `data/` folder:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- `data/recipes.json` — food dishes
+- `data/cocktails.json` — cocktails
+
+### Editing on GitHub
+
+1. Go to the repo on GitHub: [github.com/jofragotre/girl_dinner](https://github.com/jofragotre/girl_dinner)
+2. Navigate into `girl-dinner/data/`
+3. Click the file you want to edit (`recipes.json` or `cocktails.json`)
+4. Click the pencil icon (Edit this file) in the top right
+5. Make your changes, then click **Commit changes** → commit directly to `main`
+6. Vercel will auto-deploy within ~30 seconds
+
+### Recipe format
+
+```json
+{
+  "id": "unique-number-as-string",
+  "name": "Name of the dish",
+  "ingredients": ["ingredient one", "ingredient two"],
+  "vibe": "a short witty description",
+  "moods": ["soft", "feral", "fancy", "hungover"]
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Cocktail format
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```json
+{
+  "id": "unique-number-as-string",
+  "name": "Name of the cocktail",
+  "ingredients": ["ingredient one", "ingredient two"],
+  "vibe": "a short witty description",
+  "moods": ["soft", "feral", "fancy", "hungover"]
+}
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Valid moods
 
-## Learn More
+| Mood | When to use |
+|------|-------------|
+| `soft` | cozy, calm, gentle energy |
+| `feral` | chaotic, unhinged, no thoughts |
+| `fancy` | bougie, treating yourself |
+| `hungover` | survival mode |
 
-To learn more about Next.js, take a look at the following resources:
+`moods` is optional — leave it out and the item appears for all moods.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Rules
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `id` must be unique within its file (just increment from the last one)
+- `ingredients` is an array of strings — keep them lowercase and casual
+- `vibe` is one short line, the more unhinged the better
