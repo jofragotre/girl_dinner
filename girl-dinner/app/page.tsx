@@ -287,6 +287,13 @@ export default function Home() {
             </Link>
           </nav>
 
+          <p
+            className="text-[11px] tracking-[0.2em] uppercase"
+            style={{ color: "rgba(94, 234, 212, 0.4)" }}
+          >
+            girl dinner™ · est. whenever
+          </p>
+
           {mounted && (
             <div className="w-full flex items-center justify-between pt-2">
               <span
@@ -311,13 +318,6 @@ export default function Home() {
               </div>
             </div>
           )}
-
-          <p
-            className="text-[11px] tracking-[0.2em] uppercase"
-            style={{ color: "rgba(94, 234, 212, 0.4)" }}
-          >
-            girl dinner™ · est. whenever
-          </p>
         </footer>
       </div>
     </main>
